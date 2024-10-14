@@ -92,4 +92,6 @@ page-mathjax: true
 # Friends
 friends:
   [
+    { title: "fanzt", href: "https://fanzt.github.io/" },
+    { title: "PhotonYan", href: "https://photonyan.github.io/" },
   ]
