@@ -1,0 +1,63 @@
+---
+layout:     post
+title:      "粒子物理新生研讨课报告"
+subtitle:   "浅析狭义与广义相对论"
+date:       2024-11-11 13:00:00
+author:     "Whitney"
+header-img: "img/gr-bg.jpg"
+catalog: true
+usemathjax: true
+tags:
+    - 数学
+    - 拓扑
+    - 流形
+    - 笔记
+    - 广义相对论
+---
+### 广义坐标变换和洛伦兹变换
+&emsp;&emsp;$\mathbb{R}^n$中的坐标变换总能取以下形式：
+
+$$
+x^{\prime\mu} =  f(x^0, x^1, x^2, \cdots , x^\mu)
+$$
+
+事实上，如果我们认为这样的坐标变换是线性的，即认为有
+
+$$
+x^{\prime\mu} = \alpha^\mu_{\ \ \nu} x^\nu
+$$
+
+那么我们就可以立刻认识到这正是矩阵乘法规则的另一种表示形式，因而我们可以将所有的系数$\alpha$排成一个矩阵:
+
+$$
+ \begin{bmatrix}
+   \alpha^1_{\ \ 1} & \cdots & \alpha^1_{\ \ \nu} \\
+   \vdots & \ddots & \vdots \\
+   \alpha^\mu_{\ \ 1} & \cdots & \alpha^\mu_{\ \ \nu}
+  \end{bmatrix}
+$$
+
+那么在四维闵氏时空中，坐标变换即可写作：
+
+$$
+\begin{bmatrix}
+ x^{\prime 0}\\
+ x^{\prime 1}\\
+ x^{\prime 2}\\
+ x^{\prime 3}
+\end{bmatrix}
+ = \begin{bmatrix}
+ \alpha^0_{\ \ 0} & \alpha^0_{\ \ 1} & \alpha^0_{\ \ 2} & \alpha^0_{\ \ 3}\\
+ \alpha^1_{\ \ 0} & \alpha^1_{\ \ 1} & \alpha^1_{\ \ 2} & \alpha^1_{\ \ 3}\\
+ \alpha^2_{\ \ 0} & \alpha^2_{\ \ 1} & \alpha^2_{\ \ 2} & \alpha^2_{\ \ 3}\\
+ \alpha^3_{\ \ 0} & \alpha^3_{\ \ 1} & \alpha^3_{\ \ 2} & \alpha^3_{\ \ 3}
+\end{bmatrix}
+\begin{bmatrix}
+x^0 \\
+x^1 \\
+x^2 \\
+x^3
+\end{bmatrix}
+$$
+
+
