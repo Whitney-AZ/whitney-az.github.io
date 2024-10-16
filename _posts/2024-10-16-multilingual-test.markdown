@@ -8,6 +8,7 @@ header-img:   "img/test.jpg"
 header-mask:  0.3
 catalog:      true
 multilingual: true
+header-mask:  0.3
 tags:
     - test
 ---

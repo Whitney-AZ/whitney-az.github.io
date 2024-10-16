@@ -7,6 +7,7 @@ author:     "Whitney"
 header-img: "img/test.jpg"
 catalog: true
 usemathjax: true
+header-mask:  0.3
 tags:
     - test
 ---

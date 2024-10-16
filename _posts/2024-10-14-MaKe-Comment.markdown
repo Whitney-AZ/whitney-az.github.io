@@ -7,6 +7,7 @@ author:     "Whitney"
 header-img: "img/in-post/post-bg-MaKe.jpg"
 catalog: true
 usemathjax: true
+header-mask:  0.3
 tags:
     - 漫评
     - 2024年7月

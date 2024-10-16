@@ -7,12 +7,14 @@ author:     "Whitney"
 header-img: "img/in-post/gr-bg.jpg"
 catalog: true
 usemathjax: true
+header-mask:  0.3
 tags:
     - 数学
     - 拓扑
     - 流形
     - 笔记
     - 广义相对论
+    - 物理
 ---
 ### 广义坐标变换和洛伦兹变换
 &emsp;&emsp;$\mathbb{R}^n$中的坐标变换总能取以下形式：

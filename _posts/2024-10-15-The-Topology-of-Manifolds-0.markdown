@@ -7,12 +7,14 @@ author:     "Whitney"
 header-img: "img/in-post/topology-bg.jpg"
 catalog: true
 usemathjax: true
+header-mask:  0.3
 tags:
     - 数学
     - 拓扑
     - 流形
     - 笔记
     - 广义相对论
+    - 物理
 ---
 
 >定义均来自梁灿彬《微分几何与广义相对论》，本文仅是对其第一章内容的选录和换序。
