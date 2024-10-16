@@ -18,46 +18,78 @@ tags:
 &emsp;&emsp;$\mathbb{R}^n$中的坐标变换总能取以下形式：
 
 $$
-x^{\prime\mu} =  f(x^0, x^1, x^2, \cdots , x^\mu)
+    x^{\prime\mu} =  f(x^0, x^1, x^2, \cdots , x^\mu)
 $$
 
 事实上，如果我们认为这样的坐标变换是线性的，即认为有
 
 $$
-x^{\prime\mu} = \alpha^\mu_{\ \ \nu} x^\nu
+    x^{\prime\mu} = \alpha^\mu_{\ \ \nu} x^\nu
 $$
 
 那么我们就可以立刻认识到这正是矩阵乘法规则的另一种表示形式，因而我们可以将所有的系数$\alpha$排成一个矩阵:
 
 $$
- \begin{bmatrix}
-   \alpha^1_{\ \ 1} & \cdots & \alpha^1_{\ \ \nu} \\
-   \vdots & \ddots & \vdots \\
-   \alpha^\mu_{\ \ 1} & \cdots & \alpha^\mu_{\ \ \nu}
-  \end{bmatrix}
+    \begin{bmatrix}
+        \alpha^1_{\ \ 1} & \cdots & \alpha^1_{\ \ \nu} \\
+        \vdots & \ddots & \vdots \\
+        \alpha^\mu_{\ \ 1} & \cdots & \alpha^\mu_{\ \ \nu}
+    \end{bmatrix}
 $$
 
 那么在四维闵氏时空中，坐标变换即可写作：
 
 $$
-\begin{bmatrix}
- x^{\prime 0}\\
- x^{\prime 1}\\
- x^{\prime 2}\\
- x^{\prime 3}
-\end{bmatrix}
- = \begin{bmatrix}
- \alpha^0_{\ \ 0} & \alpha^0_{\ \ 1} & \alpha^0_{\ \ 2} & \alpha^0_{\ \ 3}\\
- \alpha^1_{\ \ 0} & \alpha^1_{\ \ 1} & \alpha^1_{\ \ 2} & \alpha^1_{\ \ 3}\\
- \alpha^2_{\ \ 0} & \alpha^2_{\ \ 1} & \alpha^2_{\ \ 2} & \alpha^2_{\ \ 3}\\
- \alpha^3_{\ \ 0} & \alpha^3_{\ \ 1} & \alpha^3_{\ \ 2} & \alpha^3_{\ \ 3}
-\end{bmatrix}
-\begin{bmatrix}
-x^0 \\
-x^1 \\
-x^2 \\
-x^3
-\end{bmatrix}
+    \begin{bmatrix}
+        x^{\prime 0}\\
+        x^{\prime 1}\\
+        x^{\prime 2}\\
+        x^{\prime 3}
+    \end{bmatrix}
+=   \begin{bmatrix}
+        \alpha^0_{\ \ 0} & \alpha^0_{\ \ 1} & \alpha^0_{\ \ 2} & \alpha^0_{\ \ 3}\\
+        \alpha^1_{\ \ 0} & \alpha^1_{\ \ 1} & \alpha^1_{\ \ 2} & \alpha^1_{\ \ 3}\\
+        \alpha^2_{\ \ 0} & \alpha^2_{\ \ 1} & \alpha^2_{\ \ 2} & \alpha^2_{\ \ 3}\\
+        \alpha^3_{\ \ 0} & \alpha^3_{\ \ 1} & \alpha^3_{\ \ 2} & \alpha^3_{\ \ 3}
+    \end{bmatrix}
+    \begin{bmatrix}
+        x^0 \\
+        x^1 \\
+        x^2 \\
+        x^3
+    \end{bmatrix}
 $$
 
+那么一般形式的坐标变换就可以写作：
 
+$$
+    x^{\prime\mu} = \Lambda^\mu_{\ \ \nu}x^\nu + a^\mu
+$$
+
+其中$\Lambda^\mu_{\ \ \nu}$代表上面的那个$4\times 4$的矩阵。
+
+&emsp;&emsp;我们现在来考虑狭义相对论的背景时空。狭义相对论的背景时空是闵氏时空；即，时空中的距离用以下公式表征：
+
+$$
+    (\mathrm{d}s)^2 = \eta_{\mu\nu}\mathrm{d}x^\mu\mathrm{d}x^\nu
+$$
+
+其中$\eta = \mathrm{diag}(-1, 1, 1, 1)$.这一个系数对于时空中任意位置而言都是一定的，因此我们将坐标变换带进上式得
+
+$$
+    (\mathrm{d}s)^2 = \eta_{\mu\nu}\mathrm{d}x^\mu\mathrm{d}x^\nu = \eta'_{\rho\sigma}\Lambda^\rho_{\ \ \mu}\mathrm{d}x^\mu \Lambda^\sigma_{\ \ \nu}\mathrm{d}x^\nu = \eta'_{\rho\sigma}\mathrm{d}x'^\rho\mathrm{d}x'^\sigma
+$$
+
+因此我们有
+
+$$
+    \eta_{\mu\nu} = \eta'_{\rho\sigma}\Lambda^\rho_{\ \ \mu}\Lambda^\sigma_{\ \ \nu} \neq \eta'_{\rho\sigma}\Lambda^{\ \ \rho}_{\mu}\Lambda^\sigma_{\ \ \nu}
+$$
+
+用矩阵的形式：
+
+$$
+    \eta = \Lambda^T \eta\Lambda
+$$
+
+这个形式与正交矩阵的定义类似，唯一的差别就是单位矩阵的形式不同。因为所有的$n\times n$的正规矩阵都能组成一个$O(n)$群，那么所有满足上式的坐标变换矩阵也应能组成一个群。由于单位矩阵不同，我们将后面这个群记作$O(3,1)$。这个群被称作**洛伦兹群**。洛伦兹群作为李群显然也是微分流形；我们取它的连通区域，不加证明地我们说它也是一个群，并将其称作限制洛伦兹群，记作$SO(3,1)^\uparrow$。
