@@ -4,7 +4,7 @@ title:      "再评《败犬女主太多了！》"
 subtitle:   "恋爱作为一种投射"
 date:       2024-10-14 13:00:00
 author:     "Whitney"
-header-img: "img/post-bg-MaKe.jpg"
+header-img: "img/in-post/post-bg-MaKe.jpg"
 catalog: true
 usemathjax: true
 tags:

@@ -4,7 +4,7 @@ title:      "《流形上的拓扑学》笔记（0）"
 subtitle:   "第零章 拓扑空间"
 date:       2024-10-15 13:00:00
 author:     "Whitney"
-header-img: "img/topology-bg.jpg"
+header-img: "img/in-post/topology-bg.jpg"
 catalog: true
 usemathjax: true
 tags:

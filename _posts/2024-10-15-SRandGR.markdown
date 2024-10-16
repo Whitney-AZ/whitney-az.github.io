@@ -4,7 +4,7 @@ title:      "粒子物理新生研讨课报告"
 subtitle:   "浅析狭义与广义相对论"
 date:       2024-11-11 13:00:00
 author:     "Whitney"
-header-img: "img/gr-bg.jpg"
+header-img: "img/in-post/gr-bg.jpg"
 catalog: true
 usemathjax: true
 tags:

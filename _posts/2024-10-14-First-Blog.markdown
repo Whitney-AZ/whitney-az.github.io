@@ -4,11 +4,11 @@ title:      "Test Blog"
 subtitle:   "Hello World"
 date:       2024-10-14 10:00:00
 author:     "Whitney"
-header-img: "img/post-bg-2024.jpg"
+header-img: "img/test.jpg"
 catalog: true
 usemathjax: true
 tags:
-    - Test
+    - test
 ---
 Hello World!
 
