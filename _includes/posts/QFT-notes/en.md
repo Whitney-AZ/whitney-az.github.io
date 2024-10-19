@@ -89,3 +89,15 @@ $$
 $$
 
 Therefore we'll immediately see that $(AB)^\dagger = B^\dagger A^\dagger$.
+
+If a operator satisfy $A = A^\dagger$, then it's called *Hermitian*. 
+A hermitian operator $A$ on a subspace $F$ is denoted by $A(F)$ and $A(F) \subset F$ and if $A$ operates on the orthogonal complement $F^\perp$ it satisfy that $A(F^\perp) \subset F^\perp$.
+
+**Exercise 1.2.2**
+<br>
+Let's suppose that $x$ is orthogonal to $y$. Then $(x, y) = 0$. Then $x \in F$ and that $y \in F^\perp$. Then we suppose $A(x) \in F$. Therefore $(A(x), y) = (x, A^\dagger(y)) = (x, A(y)) = 0$. Then we can say that $x$ is also orthogonal to $A(y)$, which means $A(F^\perp) \subset F^\perp$. 
+
+**Exercise 1.2.3** 
+<br>
+Abandoned.
+
