@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Re：从零开始的广义相对论讲义（0）"
+title:      "Re：从零开始的弯曲时空生活（0）"
 subtitle:   "第零章 拓扑空间"
 date:       2024-10-19 13:00:00
 author:     "Whitney"
