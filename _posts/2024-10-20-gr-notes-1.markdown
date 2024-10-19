@@ -1,0 +1,20 @@
+---
+layout:     post
+title:      "Re：从零开始的广义相对论讲义（1）"
+subtitle:   "第一章 微分流形与切空间"
+date:       2024-10-20 13:00:00
+author:     "Whitney"
+header-img: "img/in-post/gr-notes-bg.jpg"
+catalog: true
+usemathjax: true
+header-mask:  0.3
+tags:
+    - 数学
+    - 拓扑
+    - 流形
+    - 笔记
+    - 广义相对论
+    - 物理
+---
+
+zsbd
