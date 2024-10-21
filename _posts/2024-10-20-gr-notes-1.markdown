@@ -85,4 +85,29 @@ $$
 $$
 
 <br>
-&emsp;&emsp;按照这种定义方式，新的向量$(u+v)$和$(\lambda v)$仍然是$V_m$中的元素，那么
+&emsp;&emsp;按照这种定义方式，新的向量$(u+v)$和$(\lambda v)$仍然是$V_m$中的元素，如此$V_m$就成为了一个向量空间，我们称其为**切空间**，且我们不加证明的指出$\dim V_m = \dim M$。
+
+-----
+
+<br>
+&emsp;&emsp;函数芽的概念帮助我们在流形上的每一点处依赖其邻域定义了一个向量空间。但是在实际应用的时候，我们依旧认为切向量是作用于函数本身而非函数芽上的，即定义$v(f) = v(\mathbf{f})$，这种“新的”切向量显然与前一种定义是类似的，只不过需要把函数芽全部改成给定函数。
+<br>
+&emsp;&emsp;现在我们尝试将流形上的函数$f$通过图放入$\mathbb{R}^n$的开子集中。图给流形中的开子集赋予了一个坐标系，因此就应有$f = f(x\mu)$；由图的定义我们有$\psi(x^\mu) = r^\mu$，其中$r^\mu$为$\mathbb{R}^n$中的典范坐标系。那么如果我们将$f$放回$\mathbb{R}^n$中再求偏导，就会有
+
+$$
+\frac{\partial (f \circ \psi^{-1})}{\partial r^\mu}\Bigg|_{\psi(m)} = \frac{\partial f}{\partial x^\mu}\Bigg|_m
+$$
+
+可以发现等式右边的式子实际上只依赖于$m$点附近的函数（或者说依赖于函数芽$\mathbf{f}$）。我们将右式写作更清晰的形式：
+
+$$
+\left(\frac{\partial}{\partial x^\mu} \right)\Bigg|_m (f)
+$$
+
+这样我们定义这样一个“偏导数”$\partial/\partial x^\mu |_m$作为我们在$m$点附近的切向量，发现它满足我们对于定义的切向量的要求，并且这样一些偏导数的集合还构成了切空间的一个基。如果假设$m$的邻域有另外一个图给出另一个坐标系$x^{\prime\mu}$，那么两个坐标系下的基满足以下变换关系：
+
+$$
+\left(\frac{\partial}{\partial x^{\prime\nu}} \right)\Bigg|_m = \left(\frac{\partial x^\mu}{\partial x^{\prime\nu}} \right) \left(\frac{\partial}{\partial x^\mu} \right)\Bigg|_m
+$$
+
+这样我们就部分达成了我们的目标：在流形上定义出了向量的概念。
