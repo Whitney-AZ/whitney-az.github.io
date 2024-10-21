@@ -104,10 +104,12 @@ $$
 \left(\frac{\partial}{\partial x^\mu} \right)\Bigg|_m (f)
 $$
 
-这样我们定义这样一个“偏导数”<span>$\partial/\partial x^\mu |_m$</span>作为我们在$m$点附近的切向量，发现它满足我们对于定义的切向量的要求，并且这样一些偏导数的集合还构成了切空间的一个基。如果假设$m$的邻域有另外一个图给出另一个坐标系$x^{\prime\mu}$，那么两个坐标系下的基满足以下变换关系：
+这样我们定义这样一个“偏导数”<span>$\partial/\partial x^\mu |_m$</span>作为我们在$m$点附近的切向量，发现它满足我们对于定义的切向量的要求，并且这样一些偏导数的集合还构成了切空间的一个基。为了方便，我们将<span>$\partial/\partial x^\mu |_m$</span>简记为<span>$\partial_\mu|_m$</span>。由于这些偏导数组成$V_m$上的一个基，那么$V_m$中的任意一个向量都可以记作$v = v^\mu\partial_\mu$，而这也与$\mathbb{R}^n$中向量的定义类似。我们称$v^\mu$为$v$的分量。我们以后多用坐标分量$v^\mu$来代替向量本身。
+&emsp;&emsp;如果假设$m$的邻域有另外一个图给出另一个坐标系$x^{\prime\mu}$，那么两个坐标系下的基满足以下变换关系：
 
 $$
 \left(\frac{\partial}{\partial x^{\prime\nu}} \right)\Bigg|_m = \left(\frac{\partial x^\mu}{\partial x^{\prime\nu}} \right) \left(\frac{\partial}{\partial x^\mu} \right)\Bigg|_m
 $$
 
-这样我们就部分达成了我们的目标：在流形上定义出了向量的概念。
+<br>
+&emsp;&emsp;这样我们就部分达成了我们的目标：在流形上定义出了向量的概念。
