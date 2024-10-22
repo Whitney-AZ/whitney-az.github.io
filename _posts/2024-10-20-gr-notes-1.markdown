@@ -113,5 +113,6 @@ $$
 \left(\frac{\partial}{\partial x^{\prime\nu}} \right)\Bigg|_m = \left(\frac{\partial x^\mu}{\partial x^{\prime\nu}} \right) \left(\frac{\partial}{\partial x^\mu} \right)\Bigg|_m
 $$
 
-<br>
-&emsp;&emsp;这样我们就部分达成了我们的目标：在流形上定义出了向量的概念。
+这样我们就部分达成了我们的目标：在流形上定义出了向量的概念。
+
+## 对偶向量空间
