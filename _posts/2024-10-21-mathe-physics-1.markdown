@@ -39,7 +39,7 @@ $$
 <br>
 &emsp;&emsp;一些重要的向量空间如下：
 1. 复系数的多项式组成的集合配以普通的加法构成一个复数上的向量空间，被记作$\mathcal{P^c[t]}$.
-2. 所有$m\times n$的矩阵组成的集合配以普通的矩阵加法构成一个复数上的向量空间。
+2. 所有$m\times n$的矩阵组成的集合$\mathcal{M}^{m\times n}$配以普通的矩阵加法构成一个复数上的向量空间。
 3. 所有收敛的复数序列$\mathbb{C}^\infty$构成一个复数上的向量空间。
 4. 所有在$(a, b)$上连续且任意阶可导的函数的集合构成一个实数上的向量空间。
 
@@ -52,3 +52,25 @@ $$
 $$
 \left \vert a \right \rangle, \left \vert b \right \rangle \in \mathcal{W} \Rightarrow \forall \alpha, \beta \in \mathbb{C}, \alpha\left \vert a \right \rangle+\beta \left \vert b \right \rangle \in \mathcal{W}.
 $$
+
+&emsp;&emsp;**定理**&emsp;&emsp;记向量空间$\mathcal{V}$中任意非空子集为$S$，那么$S$中所有元素的线性组合的集合$\mathcal{W}_S$构成$\mathcal{V}$的一个子空间。我们称$S$张成$\mathcal{W}_S$，$\mathcal{W}_S$常被记作$\mathrm{Span}\{S\}$。
+
+&emsp;&emsp;**定义**&emsp;&emsp;向量空间$\mathcal{V}$的一组**基**是一个线性独立向量组成的集合$B$，并且$B$张成$\mathcal{V}$。如果一个向量空间有有限个基，那么这个向量空间被称作**有限维的向量空间**；如果有无限多个基，那么被称为**无穷维向量空间**。
+
+&emsp;&emsp;**定理**&emsp;&emsp;所有给定的有限维向量空间的基的线性独立的向量个数相同。
+>这一条定理实际上保证了基之间变换的可能性和给定有限维向量空间维数的唯一性。换句话讲，如果我们按照基的个数来定义一个向量空间的维数（正如下面一个定义将要做的），那么根据这个定理一个向量空间就不可能有两个不同的维度。
+
+&emsp;&emsp;**定义**&emsp;&emsp;向量空间$\mathcal{V}$的基的势被称作$\mathcal{V}$的**维度**，记作$\dim \mathcal{V}$。
+
+&emsp;&emsp;对于任意一个$\vert a \rangle \in \mathcal{V}$ 以及一个向量空间中的基 $B = \{\vert a_i \rangle\}^N_{i = 1}$， 存在且唯一存在一组标量$\{\alpha_1, \alpha_2, \ldots, \alpha_n\}$ 使得$\vert a \rangle=\sum_{i=1}^N \alpha_i\vert a_i\rangle$. 这个集合$\{ \alpha_i \}_{i=1}^N$被称作$\vert a\rangle$在基$B$下的**分量**。
+
+<br>
+&emsp;&emsp;上面提过的向量空间的基可以取作：
+1. $\mathcal{P}^c[t]$的基显然可以取为$1, t, t^2, \ldots$。显然这个向量空间是无穷维的。
+2. $\mathcal{M}^{m \times n}$的基可以取作$e_{11}, e_{12}, \ldots , e_{mn}$，其中$e_{ij}$是只有$a_{ij}$是$1$，其余元素都为$0$的矩阵。
+
+>特别注意的是，一个基的子集张成的空间是原来的向量空间的子空间。
+
+### 商空间
+&emsp;&emsp;对于向量空间$\mathcal{V}$及其子空间$\mathcal{W}$，在$\mathcal{V}$上定义一种等价关系：对于$\vert a\rangle \in \mathcal{V}$ and $\vert b\rangle \in \mathcal{V}$, 如果$\vert a\rangle-\vert b\rangle$ is in $\mathcal{W}$，那么我们说$\vert a\rangle$和$\vert b\rangle$等价,并记作$\vert a\rangle \bowtie\vert b\rangle$。将这种等价类记作$\[ a\]$，并将集合$\{\[a\] \ \big\vert \ \vert a\rangle \in \mathcal{V} \}$ 记作 $\mathcal{V} / \mathcal{W}$。
+>商集合（或者后面会使用的商空间）实际上是一个等价类的集合。采用维基百科上的例子，令$X$是所有汽车的集合，定义等价关系为所有颜色一样的车，那么商集合就是所有轿车颜色的集合。
