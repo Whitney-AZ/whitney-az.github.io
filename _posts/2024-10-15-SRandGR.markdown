@@ -16,4 +16,4 @@ tags:
     - 广义相对论
     - 物理
 ---
-<object data="{{ site.url }}{{ site.baseurl }}/_pdfs/brief-gr.pdf" width="1000" height="1000" type="application/pdf"></object>
+<object data="https://github.com/Whitney-AZ/whitney-az.github.io/blob/master/_pdfs/brief_gr.pdf" width="1000" height="1000" type="application/pdf"></object>
