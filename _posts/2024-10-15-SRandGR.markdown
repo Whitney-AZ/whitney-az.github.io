@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      "粒子物理新生研讨课报告"
-subtitle:   "浅析狭义与广义相对论"
-date:       2024-11-11 13:00:00
+subtitle:   "浅析狭义与广义相对论：一种拉格朗日表述"
+date:       2024-11-14 13:00:00
 author:     "Whitney"
 header-img: "img/in-post/gr-bg.jpg"
 catalog: true

@@ -74,3 +74,32 @@ $$
 ### 商空间
 &emsp;&emsp;对于向量空间$\mathcal{V}$及其子空间$\mathcal{W}$，在$\mathcal{V}$上定义一种等价关系：对于$\vert a\rangle \in \mathcal{V}$ and $\vert b\rangle \in \mathcal{V}$, 如果$\vert a\rangle-\vert b\rangle$ is in $\mathcal{W}$，那么我们说$\vert a\rangle$和$\vert b\rangle$等价,并记作$\vert a\rangle \bowtie\vert b\rangle$。将这种等价类记作$\[ a\]$，并将集合$\{\[a\] \ \big\vert \ \vert a\rangle \in \mathcal{V} \}$ 记作 $\mathcal{V} / \mathcal{W}$。
 >商集合（或者后面会使用的商空间）实际上是一个等价类的集合。采用维基百科上的例子，令$X$是所有汽车的集合，定义等价关系为所有颜色一样的车，那么商集合就是所有轿车颜色的集合。
+
+我们可以按照如下定义
+
+$$
+\alpha[a] + \beta[b] = [\alpha a + \beta b]
+$$
+
+从而将一个商集合变为一个商空间。
+> 商空间可以自然的看成积空间的逆运算；这也是其商空间名字的来源。
+
+我们还能通过如下的论证找到商空间中的一组基矢：
+
+$$
+[a] \equiv \left\vert a \right\rangle + \mathcal{W} = \sum_i\alpha_i\left\vert a_i\right\rangle + \sum_j\beta_j\left\vert b_j\right\rangle + \mathcal{W}\\
+\ \ \  =\sum_j\beta_j\left\vert b_j\right\rangle + \mathcal{W}\\
+\Longrightarrow [a] = \left[\sum_j\beta_j\left\vert b_j\right\rangle\right] = \sum_j\beta_j[b_j]
+$$
+
+因此$\{[b_j]\}$张成$\mathcal{V}/\mathcal{W}$。我们还能得到如下的结论：
+
+$$
+\mathrm{dim}\left(\mathcal{V}/\mathcal{W}\right) = \mathrm{dim}\mathcal{V} - \mathrm{dim}\mathcal{W}.
+$$
+
+### 直和
+&emsp;&emsp;将一个向量空间拆成两个向量空间通常是非常实用的。因此我们令 $\mathcal{U}, \mathcal{W}$ 是 $\mathcal{V}$ 的子空间，将所有能够写作两个子空间中元素的和的向量的集合记作 $\mathcal{U} + \mathcal{W}$ 。那么很显然这个集合是原来向量空间的子空间。如果满足 $\mathcal{V} = \mathcal{U} + \mathcal{W}$ 且 $\mathcal{U}\cap \mathcal{W} = \left\vert 0\right\rangle$，那么我们称 $\mathcal{V}$ 是 $\mathcal{U}$ 和 $\mathcal{W}$ 的直积，记作 $\mathcal{V} = \mathcal{U} \oplus \mathcal{W}$。直积有诸多好性质。比如，对于一个向量空间的一个子空间，总存在另一个子空间使得两者直积成原来的子空间，而且 $\mathrm{dim}\left(\mathcal{V}\right) = \mathrm{dim}\mathcal{U} + \mathrm{dim}\mathcal{W}.$
+
+### 笛卡尔积
+&emsp;&emsp;笛卡尔积是直和的一个特殊情况。在笛卡尔积中，两个子空间的元素仅有某些分量不为0，即若 $\mathcal{V} = \mathcal{U} \oplus \mathcal{W}$，那么 $\mathcal{U}$ 中的元素可以被写作 $(\left\vert u \right\rangle, \left\vert 0\right\rangle_\mathcal{W})$ 和 $(\left\vert 0 \right\rangle_\mathcal{U}, \left\vert w\right\rangle)$。通过这种方式我们将两个向量空间粘在了一起，形成了一个更高维的空间。

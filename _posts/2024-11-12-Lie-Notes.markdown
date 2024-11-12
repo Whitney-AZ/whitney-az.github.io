@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "李群和李代数笔记(1)"
+title:        "李群和李代数笔记(1)：矩阵李群"
 subtitle:     "Notes on Lie Group and Lie Algebra (1)"
 date:         2024-11-12 12:00:00
 author:       "Whitney"
