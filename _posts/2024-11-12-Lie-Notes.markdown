@@ -1,0 +1,29 @@
+---
+layout:       post
+title:        "李群和李代数笔记(1)"
+subtitle:     "Notes on Lie Group and Lie Algebra (1)"
+date:         2024-11-12 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/lie-notes-bg.jpg"
+header-mask:  0.3
+catalog:      true
+multilingual: true
+usemathjx: true
+tags:
+    - 李群和李代数
+    - 物理
+    - 数学
+    - 笔记
+---
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture about_zh %}{% include posts/Lie-notes/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    {% capture about_en %}{% include posts/Lie-notes/en.md %}{% endcapture %}
+    {{ about_en | markdownify }}
+</div>
