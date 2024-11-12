@@ -17,3 +17,5 @@ tags:
     - 物理
 ---
 <object data="https://phymani.me/assets/pdfs/brief_gr.pdf" width="700" height="1000" type='application/pdf'></object>
+
+或者直接下载pdf：[brief_gr.pdf](https://phymani.me/assets/pdfs/brief_gr.pdf)
