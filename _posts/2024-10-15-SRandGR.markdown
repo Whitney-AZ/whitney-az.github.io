@@ -16,8 +16,8 @@ tags:
     - 广义相对论
     - 物理
 ---
-<object data="{{ site.url }}/_pdfs/brief_gr.pdf" type="application/pdf" width="1000px" height="1000px">
-    <embed src="{{ site.url }}/_pdfs/brief_gr.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="{{ site.url }}/_pdfs/brief_gr.pdf">Download PDF</a>.</p>
+<object data="{{ site.url }}/assets/pdfs/brief_gr.pdf" type="application/pdf" width="1000px" height="1000px">
+    <embed src="{{ site.url }}/assets/pdfs/brief_gr.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="{{ site.url }}/assets/pdfs/brief_gr.pdf">Download PDF</a>.</p>
     </embed>
 </object>
