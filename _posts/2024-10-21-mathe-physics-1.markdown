@@ -103,3 +103,19 @@ $$
 
 ### 笛卡尔积
 &emsp;&emsp;笛卡尔积是直和的一个特殊情况。在笛卡尔积中，两个子空间的元素仅有某些分量不为0，即若 $\mathcal{V} = \mathcal{U} \oplus \mathcal{W}$，那么 $\mathcal{U}$ 中的元素可以被写作 $(\left\vert u \right\rangle, \left\vert 0\right\rangle_\mathcal{W})$ 和 $(\left\vert 0 \right\rangle_\mathcal{U}, \left\vert w\right\rangle)$。通过这种方式我们将两个向量空间粘在了一起，形成了一个更高维的空间。
+
+### 张量积
+&emsp;&emsp;笛卡尔积构造的新向量空间维数是两个子空间的维数之和。现在我们介绍一种能构造出维数之积的方法：在笛卡尔积的基础上，额外指定这样一些关系：
+
+$$
+\begin{aligned}
+\alpha(|u\rangle,|v\rangle) & =(\alpha|u\rangle,|v\rangle)=(|u\rangle, \alpha|v\rangle) \\
+\left(\alpha_1\left|u_1\right\rangle+\alpha_2\left|u_2\right\rangle,|v\rangle\right) & =\alpha_1\left(\left|u_1\right\rangle,|v\rangle\right)+\alpha_2\left(\left|u_2\right\rangle,|v\rangle\right) \\
+\left(|u\rangle, \beta_1\left|v_1\right\rangle+\beta_2\left|v_2\right\rangle\right) & =\beta_1\left(|u\rangle,\left|v_1\right\rangle\right)+\beta_2\left(|u\rangle,\left|v_2\right\rangle\right)
+\end{aligned}
+$$
+
+这样一种方式将 $\mathcal{U}$ 和 $\mathcal{V}$ 变成了一个新的向量空间 $\mathcal{W} = \mathcal{U}\otimes \mathcal{V}$ ，被称作 $\mathcal{U}$ 和 $\mathcal{V}$ 的*张量积*，并且 $\mathrm{dim}(\mathcal{W}) = \mathrm{dim}(\mathcal{U})\mathrm{dim}(\mathcal{V})$ 。
+
+## 内积空间
+&emsp;&emsp;
