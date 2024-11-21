@@ -1,0 +1,160 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》"
+subtitle:     "(1/14)"
+date:         2024-11-21 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+## 运动方程
+&emsp;&emsp;$N$个质点在空间中的位置可以用$N$个位矢、或$3N$个数来唯一决定，于是这个质点系的自由度便是$3N$。给一个质点系可以指定$3N$个数$q_i$，$q_i$被称做**广义坐标**。对于一个系统，只要在某一时刻指定了所有质点的位置和速度，那么其之后的所有运动就都已知了，因此我们还需要指定另外$3N$个数$\dot{q}_i$，被称作**广义速度**。
+
+### 最小作用量原理
+&emsp;&emsp;既然一个系统的运动可以被其广义坐标和广义速度唯一指定，那么我们就可以构造一个函数$\mathcal{L}(q_i, \dot{q}_i,t)$来表征一个力学系统，并且还要满足以下条件：系统的运动要使下面这个积分取最小值：
+
+$$
+S = \int \mathcal{L}(q_i, \dot{q}_i,t) \mathrm{d}t
+$$
+
+函数$\mathcal{L}$被称为**拉格朗日函数**，上述积分被称为**作用量**。
+
+&emsp;&emsp;对作用量变分可以得到
+
+$$
+\begin{gathered}
+    \delta S = \delta\int \mathcal{L}(q_i, \dot{q}_i,t) \mathrm{d}t = 0 
+    \\\int\left(\frac{\partial \mathcal{L}}{\partial q}\delta q + \frac{\partial \mathcal{L}}{\partial \dot{q}}\delta \dot{q}\right)\mathrm{d}t= 0
+    \\ \frac{\partial \mathcal{L}}{\partial \dot{q}}\delta q \bigg\vert^b_a + \int\left(\frac{\partial \mathcal{L}}{\partial q} - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{q}}\right)\delta q \mathrm{d}t= 0
+    \\ \frac{\partial \mathcal{L}}{\partial q} - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{q}} = 0
+\end{gathered}
+$$
+
+最后一个等式我们常称为欧拉-拉格朗日方程（但是朗道似乎没这么叫？）。对于有$s$个自由度的系统，我们应当能得到$s$个方程。这方程是二阶的微分方程，所以通解需要有两个常数，因此我们需要提供$2s$个初始值来确定微分方程的解、进而得到质点的运动方程。
+
+&emsp;&emsp;当两个独立的系统间隔无限远、相互作用力无限小时，两个系统的拉格朗日量可以相加。同时由方程我们可以发现对拉格朗日函数乘上一个常数不会改变系统的力学特征，然而可加性又要求所有的力学系统都需要乘上同一个常数，而这反映了度量单位选取的任意性。
+&emsp;&emsp;如果两个拉格朗日函数相差一个时间的全导数项，那么这个全导数项会在变分时消失，因而两个拉格朗日函数将给出同一个力学系统。所以拉格朗日函数仅可定义到相差一个时间的全导数项。
+
+### 伽利略相对性原理
+&emsp;&emsp;总存在这么一种参考系，在其中空间是均匀且各向同性的，时间是均匀的。这样的参考系我们称为**惯性参考系**。仅由以上两个假设我们立刻可以得到，自由质点在其中的运动只有可能是$v = \mathrm{const}$的：
+
+$$
+\mathcal{L}(q,\dot{q},t) \Rightarrow \mathcal{L}(\dot{q}) \Rightarrow \mathcal{L}(\dot{q}^2) \Rightarrow \frac{\mathrm{d}v}{\mathrm{d}t} = 0 \Rightarrow v = \mathrm{const}.
+$$
+
+因此在惯性系中自由运动的质点速度的大小和方向均不改变，这就是**惯性定律**。
+
+&emsp;&emsp;如果我们再引入一个参考系相对惯性系以速度$v$运动，那么在其中质点的速度仍然是恒定不变的，因此我们断言，在不同的惯性系中，所有的力学规律都一致，并且存在无限多个这样的惯性系，因而没有绝对的参考系；这个原理叫做**伽利略相对性原理**。在不同惯性系下位矢的变换规律可表述为$r' = r + Vt$，而不同惯性系中时间一致，即$t' = t$。这一点正反映了牛顿时空观下绝对时间的假设。
+
+### 自由质点的拉格朗日函数
+&emsp;&emsp;考虑一个相对于惯性系以一小速度$\epsilon$运动的参考系$K'$，那么一个自由质点在两个参考系下的拉格朗日函数就可以分别被写作
+
+$$
+\mathcal{L}' = \mathcal{L}(v'^2) = \mathcal{L}(v^2 + 2v\epsilon + \epsilon^2) \qquad \mathcal{L} = \mathcal{L}(v^2)
+$$
+
+由于两者的拉格朗日函数必须一致或相差一个时间的全导数项，那么将$K'$系中的拉格朗日函数展开至$\epsilon$的一次项得到
+
+$$
+\mathcal{L}(v'^2) = \mathcal{L}(v^2) + 2\frac{\partial \mathcal{L}}{\partial v^2}v\epsilon 
+$$
+
+为使第二项为时间的全导数，必须能写作$\alpha v = \mathrm{d}/\mathrm{d}t (\alpha x)$的形式，因此$\partial \mathcal{L}/\partial v^2 = \mathrm{const}$，因此自由质点的拉格朗日函数可写作
+
+$$
+\mathcal{L} = \frac{1}{2}mv^2
+$$
+
+> 此处论述精妙至极。
+
+&emsp;&emsp;由于拉格朗日函数的可加性，我们可以将质点系的拉格朗日函数写作
+
+$$
+\mathcal{L} = \sum \frac{1}{2}m_iv_i^2
+$$
+
+对于拉格朗日函数，同乘一个常数意味着质量单位的改变，然而质点之间质量的比例却保持不变，因此不会改变系统的力学性质。由于在局部作用量$S$要取最小值，那么$m$就不可能是负的，这也保证了真实粒子不能存在负质量。
+
+&emsp;&emsp;注意到$v^2 = (\mathrm{d}l/\mathrm{d}t)^2$，因此事实上为了写出自由质点的拉格朗日函数我们只需在找出在某一坐标系下线元的平方$\mathrm{d}l^2$即可。
+
+### 质点系的拉格朗日函数
+&emsp;&emsp;存在这么一种质点系，质点系内部质点之间相互作用，而不受外力作用。描述质点间的作用可在拉格朗日函数内添加一坐标的函数项，其具体内容由相互作用的性质决定。将这一函数记为$-U$，那么就有
+
+$$
+\mathcal{L} = \sum \frac{1}{2}m_iv_i^2 - U(r_i)
+$$
+
+其中$U$被称为质点系的势能，$\sum 1/2m_iv_i^2$被称作质点系的动能。将这个拉格朗日函数代入运动方程可得
+
+$$
+\begin{gathered}
+    \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial v} = \frac{\partial\mathcal{L}}{\partial r}\\
+    m\frac{\mathrm{d}v}{\mathrm{d}t} = -\frac{\partial U}{\partial r}
+\end{gathered}
+$$
+
+这正是我们熟知的牛顿力学运动方程在外场中的形式，因此形式类似的等式被称作**牛顿方程**。在运动方程中，系统的运动性质仅与势能的导数有关，因此势能能够任意加减常数而不改变系统的力学性质，所以势能零点可以任取。最方便的取法是使两个质点距离无限大时势能为零。
+
+&emsp;&emsp;当一个质点系与外部一个已知的质点系作用时，我们可以将外部质点系的动能写作时间的函数，因此其动能便可以写作时间的全导数，可从拉格朗日函数中去掉。这样一种作用形式被称作质点系被外场作用，拉格朗日函数取以下形式：
+
+$$
+\mathcal{L} = T_A(q_A, \dot{q}_A) - U(q_A, q_B(t))
+$$
+
+注意到由于我们选择了用时间来写外部质点系的坐标，那么此时势能就可能显含时间，那么在外场中质点系的运动也将遵循牛顿方程的规律。在恒定外场中，由于$U$恒定，那么$\partial U/\partial r = \mathrm{const}$，此时就有$U = - Fr$ 。
+
+
+## 守恒定律
+
+### 能量
+&emsp;&emsp;一个系统中有一些关于广义坐标和广义速度的函数，在运动过程中保持不变，只由初始条件决定，这样的函数被称为**运动积分**。然而总有一些运动积分是源于时间与空间的对称性质的，因此要比其他的守恒量更“高贵”。他们还具有可加性，因此在研究物理问题时具有重要意义。
+
+&emsp;&emsp;我们现在推导时间平移对称性导出的守恒量。时间平移对称性导致封闭系统的拉格朗日函数不显含时间，因此拉格朗日函数对时间的全导数可写作
+
+$$
+\begin{aligned}
+    \frac{\mathrm{d}\mathcal{L}}{\mathrm{d}t} &= \frac{\partial \mathcal{L}}{\partial q}\frac{\mathrm{d}q}{\mathrm{d}t} + \frac{\partial \mathcal{L}}{\partial \dot{q}}\frac{\mathrm{d}\dot{q}}{\mathrm{d}t}\\
+    &= \dot{q}\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{q}} + \frac{\partial \mathcal{L}}{\partial \dot{q}}\frac{\mathrm{d}\dot{q}}{\mathrm{d}t}\\
+    &= \frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}}\dot{q}\right)
+\end{aligned}
+$$
+
+因此我们就会得到
+
+$$
+\frac{\partial \mathcal{L}}{\partial \dot{q}}\dot{q} - \mathcal{L} = \mathrm{const} = E
+$$
+
+这一守恒量被称作系统的**能量**。由于是拉格朗日函数对时间求全导数，那么如果有一个不显含时间的外场，能量依旧守恒。能量守恒的系统被称作**保守系统**。用封闭系统的拉格朗日函数代入上式能够得到$E = T + U$，这也是我们更熟悉的能量的形式。
+
+### 动量
+&emsp;&emsp;空间平移对称性也能够导出一个守恒量。考虑一个无限小位移$\delta r$，由于空间平移对称性，位移后的拉格朗日函数应当保持不变，即变分为0，那么变分后可得到
+
+$$
+\begin{aligned}
+    \delta\mathcal{L} &= \frac{\partial \mathcal{L}}{\partial r}\delta r = 0\\
+    \Rightarrow & \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial v} = 0
+    \Rightarrow & \frac{\partial \mathcal{L}}{\partial v} = \mathrm{const} = P
+\end{aligned}
+$$
+
+因此我们又构造出一个守恒量$P$，被称作**动量**。仍然在封闭系统中考虑，动量就能被写作$P = mv$的形式。由于此时是对坐标求导，那么外场的影响就不可忽视。不过，如果势能的表达式中不显含某个坐标，那么说明势能对这个坐标的导数为0，拉格朗日的变分仍回到上述讨论的范畴，动量守恒。因此势能不包含哪个笛卡尔坐标，动量在那个方向上守恒。
+
+&emsp;&emsp;在广义坐标下，我们称$\partial \mathcal{L}/\partial \dot{q}$为**广义动量**$p$，称$\partial \mathcal{L}/\partial q$为**广义力**$F$，因此欧拉拉格朗日方程可以被简写为
+
+$$
+\dot{p} = F
+$$
+
+注意到这正是牛顿第二定律更一般的形式。
+
+>现在是北京时间2024.11.22 02:51,昨日完成《力学》page 1-16，前几节较为简单故加速刷过。望能顺利完成。
