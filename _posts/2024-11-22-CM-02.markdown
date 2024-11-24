@@ -1,0 +1,132 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》"
+subtitle:     "(2/14)"
+date:         2024-11-22 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg-2.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+>周末疲惫不堪、准备广义相对论研讨班回北京休息了两天，有间断，回来之后学校事务渐少，势必日更。
+
+### 角动量
+&emsp;&emsp;空间各向同性也能导出一个守恒量。沿用之前的做法，我们考虑一个力学系统的无穷小转动$\delta \psi$，那么$\delta r = \delta\psi \times r$，以及$\delta v = \delta\psi\times v$。既然要求空间各向同性，那么在无穷小转动下拉格朗日函数的变分应当是不变的:
+
+$$
+\delta\mathcal{L} = \sum_a\left(\frac{\partial\mathcal{L}}{\partial r_a}\cdot \delta r_a + \frac{\partial\mathcal{L}}{\partial v_a}\cdot \delta v_a \right) = 0
+$$
+
+代入我们上次所定义的广义动量和广义力，我们会得到
+
+$$
+\begin{gathered}
+    \sum_a\left[\dot{p}_a\cdot \left(\delta\psi \times r_a\right)+ p_a \cdot \left(\delta\psi \times v_a\right)\right] = 0\\
+    \delta\psi \cdot \sum_a\left(r_a\times \dot{p}_a + v_a\times p_a\right) = 0\\
+    \delta\psi \cdot \frac{\mathrm{d}}{\mathrm{d}t}\sum_a r_a\times p_a = 0\\
+    r_a\times p_a = \mathrm{const}
+\end{gathered}
+$$
+
+所以说在封闭系统中径矢叉乘动量是一个守恒量，我们称其为**角动量**。这一守恒量的可加性是显然的。由于时空的不变性就只有这么三种，因此对于一个封闭系统，最多只有这么七个守恒量：能量、动量的三个分量、角动量的三个分量。如果选取的参考点相差一个矢量$\Delta r$，那么两个选择的角动量之间的关系就回事$M = M' + \Delta r\times P$，其中$P$是系统整体的动量。因此如果系统整体是静止的，那么不同参考点的选择不会影响系统角动量的值。不同参考系下的角动量有类似的关系：$M = M' + R\times P$。也就是说，在一个任意的参考系下考察一个力学系统的角动量，会发现其角动量是由两部分构成的：其质心系中的角动量和参考系下质心的角动量。
+
+&emsp;&emsp;如果系统在一个对称的外场下运动，那么我们会发现角动量在外场的对称轴上的投影是不变的（因为我们如果此时选外场的对称中心作为参考点，那么对称外场某种意义上不会改变时空的性质，也因此不会改变角动量的守恒性）。
+
+### 质心
+&emsp;&emsp;质心的定义往往是直接给出的，然而朗道在此给出了一个推导过程。
+
+&emsp;&emsp;考虑两个参考系，相对速度为$V$。那么动量的关系就会是
+
+$$
+P = P' + V\sum_a m_a 
+$$
+
+质心系是这么一个参考系，在其中系统的总动量为$0$，也就是说$V = P/\sum_a m_a = \sum_a m_a v_a /\sum_a m_a$。注意到导数的关系，因此我们可以定义一个位矢
+
+$$
+r = \frac{\sum_a m_a r_a}{\sum_a m_a}
+$$
+
+这就是质心的坐标。在封闭系统中，质心作匀速直线运动，这也是质点运动定律的自然拓展。正如质心这一名字所暗示的，这一个参考系的作用是将系统中所有的质点的质量都集中在质心的一个等价的坐标系，因此质点运动定律就可以自然的迁移到质心系中。
+
+&emsp;&emsp;接下来我们来推导两个不同坐标系下能量的关系。
+
+$$
+\begin{aligned}
+    E 
+    &= \frac{1}{2}\sum_a m_av_a^2 + U\\
+    &=  \frac{1}{2}\sum_a\left(v_a' + V\right)^2 + U\\
+    &=  \frac{1}{2}\sum_am_av_a'^2 + V\cdot \sum_am_av_a' + \frac{1}{2}\sum_am_aV^2  + U \\
+    &=  E' + V\cdot P' + \frac{1}{2}\sum_am_aV^2
+
+\end{aligned}
+$$
+
+这就是两个参考系间能量变换的关系。
+
+### 力学相似性
+&emsp;&emsp;前面提到过，拉格朗日函数乘以一个任意的常数不会改变力学系统的运动。这一特性有时能让我们不用求出运动方程就可以分析出一些运动的特性。
+
+&emsp;&emsp;假设势能是坐标的齐次函数，即$U(\alpha r_a) = \alpha^kU(r_a)$。这样如果我们引入对时间的变换$t' = \beta t$，那么系统的动能就会变成：
+
+$$
+\begin{aligned}
+    T' &= \frac{1}{2}m\left(\frac{\mathrm{d}r'}{\mathrm{d}t'}\right)^2\\
+    &= \frac{1}{2}m\left[\frac{\mathrm{d}(\alpha r)}{\mathrm{d}(\beta t)}\right]^2\\
+    &= \frac{\alpha^2}{\beta^2}\frac{1}{2}mv^2 = \frac{\alpha^2}{\beta^2}T
+\end{aligned}
+$$
+
+由于势能的变换关系是乘以$\alpha^k$那么就应该有
+
+$$
+\frac{\alpha^2}{\beta^2} = \alpha^k\Rightarrow \beta = \alpha^{1-k/2}
+$$
+
+才能保证拉格朗日函数不变。因此我们只要知道了势能的特性，我们就能通过上面这个式子来导出力学量的比值，即
+
+$$
+\frac{t'}{t} = \left(\frac{l'}{l}\right)^{1-k/2}, \frac{v'}{v} = \left(\frac{l'}{l}\right)^{k/2}, \frac{E'}{E} = \left(\frac{l'}{l}\right)^{k}, \frac{t'}{t} = \left(\frac{M'}{M}\right)^{1+k/2}
+$$
+这既是常用的力学量之间比值和轨迹长度比值的关系。例如在重力场中，势能是坐标的线性函数，那么$k = 1$，$t'/t = \sqrt{l'/l}$，这一关系正代表了下落时间的平方之比等于初始高度之比。
+
+### 位力定理
+&emsp;&emsp;在势能是坐标的齐次函数的基础上，我们还能得出力学系统平均动能和平均势能的关系。考虑一个函数对时间的平均的定义：
+
+$$
+\overline{f} = \lim_{\tau \to \infty}\frac{1}{\tau}\int_0^\tau f(t)\mathrm{d}t
+$$
+
+那么如果函数$f$的原函数是一个有界函数，那么他对时间的平均显然就会是$0$。
+
+&emsp;&emsp;考虑动能：
+
+$$
+2T = p\cdot v = \frac{\mathrm{d}}{\mathrm{d}t}(p\cdot r) - \dot{p}\cdot r
+$$
+
+那么$T$对时间平均后的第一项就是$0$，仅剩第二项，而第二项又可以写作$F\cdot r = kU$，那么就会得到
+
+$$
+2\overline{T} = k\overline{U}
+$$
+
+或者利用总能量$E$，可以分别写作
+
+$$
+\overline{U} = \frac{2}{k + 2}E, \quad \overline{T} = \frac{k}{k + 2}E。
+$$
+
+## 运动方程的积分
+
+### 一维运动
+
+>写到这头有点晕，可能是感冒了，就此停止吧，明天再赶进度。今日p16-24。

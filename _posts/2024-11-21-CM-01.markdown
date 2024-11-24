@@ -4,7 +4,7 @@ title:        "两周速通朗道《力学》"
 subtitle:     "(1/14)"
 date:         2024-11-21 12:00:00
 author:       "Whitney"
-header-img:   "img/in-post/cm-notes-bg.jpg"
+header-img:   "img/in-post/cm-notes-bg-1.jpg"
 header-mask:  0.3
 catalog:      true
 usemathjx: true
