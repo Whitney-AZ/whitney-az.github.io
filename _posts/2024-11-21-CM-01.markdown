@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "两周速通朗道《力学》"
+title:        "两周速通朗道《力学》（1）"
 subtitle:     "(1/14)"
 date:         2024-11-21 12:00:00
 author:       "Whitney"

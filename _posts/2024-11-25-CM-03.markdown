@@ -1,0 +1,211 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》（3）"
+subtitle:     "(3/14)"
+date:         2024-11-25 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg-3.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+>早上十点慵懒的起床，状态不错。今天下雨，体育课暂停一次，有一整个下午和晚上来学习。
+
+## 运动方程的积分
+### 一维运动
+&emsp;&emsp;如果取笛卡尔坐标，那么只有一个自由度的系统的运动的拉格朗日函数就可以写为$\mathcal{L} = 1/2m\dot{x} - U(x)$。由于对于一个封闭系统，能量是守恒的，那么可以直接写出其能量表达式$E = 1/2m\dot{x} + U(x)$。这是一个一阶微分方程，可以直接分离变量再积分得到运动方程的解：
+
+$$
+\begin{gathered}
+    \frac{\mathrm{d}x}{\mathrm{d}t} = \sqrt{\frac{2}{m}\left[E-U(x)\right]}\\
+    t = \sqrt{\frac{m}{2}}\int\frac{\mathrm{d}x}{\sqrt{E-U(x)}} + \mathrm{const}
+\end{gathered}
+$$
+
+由于$E-U(x)$需要恒正，那么实际的运动只能发生在$U(x)<E$的区域内，而$U(x) = E$给出了这个运动的边界，这个方程给出的点速度为零，被称作**转折点**。由两个转折点给出的运动区域被称作**有界运动**，由一个或者没有转折点的运动被称作**无界运动**。一维有界运动的运动区域被称作**势阱**，其运动被称作振动。在牛顿力学的体系下，时间是可逆的，因此两个转折点$x_1 , x_2$之间往返的时间应该是一致的。定义$x_1\to x_2\to x_1$的运动所花的时间为周期$T$，那么
+
+$$
+T = \sqrt{2m}\int_{x_1}^{x_2}\frac{\mathrm{d}x}{\sqrt{E-U(x)}}
+$$
+
+注意这里积分的上下限（即两个转折点）仍需给定力学系统的总能量才可以得到。
+
+#### 例子：平面单摆
+&emsp;&emsp;平面单摆的总能量为
+
+$$
+E = -mgl\cos\varphi_0 = \frac{ml^2\dot{\varphi}^2}{2}- mgl\cos\varphi
+$$
+
+其中$\varphi_0$是最大摆角。由于摆动过程的对称性，周期可以被写作$0 \to \varphi_0$过程所需时间的四倍，因此
+
+$$
+\begin{gathered}
+    \frac{\mathrm{d}\varphi}{\mathrm{d}t} = \sqrt{\frac{2}{ml^2}\left(E + mgl\cos\varphi\right)}\\
+    t = \sqrt{\frac{ml^2}{2}}\int^{\varphi_0}_0 \frac{\mathrm{d}\varphi}{\sqrt{E + mgl\cos\varphi}}\\
+\end{gathered}
+\\
+\begin{aligned}
+    T = 4t 
+    &= 4\sqrt{\frac{l}{2g}}\int^{\varphi_0}_0 \frac{\mathrm{d}\varphi}{\sqrt{-\cos\varphi_0 + \cos\varphi}}\\
+    &= 2\sqrt{\frac{l}{g}}\int^{\varphi_0}_0 \frac{\mathrm{d}\varphi}{\sqrt{\sin^2(\varphi_0/2) - \sin^2(\varphi/2)}}.
+\end{aligned}
+$$
+
+&emsp;&emsp;这个积分怎么算？考虑第一类完全椭圆积分：
+
+$$
+K(k) = \int^{\pi/2}_0\frac{\mathrm{d}\theta}{\sqrt{1 - k^2\sin^2\theta}} = \frac{\pi}{2}\sum_{n = 0}^{\infty}\left[\frac{(2n)!}{2^{2n}n!^2}\right]^2k^{2n}
+$$
+
+那么我们只需在周期积分中令$\sin(\varphi/2)/\sin(\varphi_0/2) = \sin\xi$，那么就会有
+
+$$
+\begin{gathered}
+    \mathrm{d}\xi = \frac{1}{2}\frac{\cos(\varphi/2)}{\sin(\varphi_0/2)}\frac{1}{\sqrt{1 - \frac{\sin^2(\varphi/2)}{\sin^2(\varphi_0/2)}}}\mathrm{d}\varphi\\
+    \mathrm{d}\varphi = \frac{2\sin(\varphi_0/2)}{\cos(\varphi/2)}\sqrt{1 - \frac{\sin^2(\varphi/2)}{\sin^2(\varphi_0/2)}}\mathrm{d}\xi\\
+\end{gathered}
+\\
+\begin{aligned}
+    T
+    &=  2\sqrt{\frac{l}{g}}\int^{\varphi_0}_0 \frac{\mathrm{d}\varphi}{\sqrt{\sin^2(\varphi_0/2) - \sin^2(\varphi/2)}}\\
+    &=  4\sqrt{\frac{l}{g}}\int^{\pi/2}_0 \frac{\sin(\varphi_0/2)}{\cos(\varphi/2)}\sqrt{1 - \frac{\sin^2(\varphi/2)}{\sin^2(\varphi_0/2)}}\frac{1}{\sqrt{\sin^2(\varphi_0/2) - \sin^2(\varphi/2)}}\mathrm{d}\xi\\
+    &=  4\sqrt{\frac{l}{g}}\int^{\pi/2}_0\frac{1}{\cos(\varphi/2)}\mathrm{d}\xi \\
+    &=  4\sqrt{\frac{l}{g}}\int^{\pi/2}_0\frac{1}{\sqrt{1 - \sin^2(\varphi/2)}}\mathrm{d}\xi \\
+    &=  4\sqrt{\frac{l}{g}}\int^{\pi/2}_0\frac{1}{\sqrt{1 - \sin^2(\varphi_0/2)\sin^2\xi}}\mathrm{d}\xi = 4\sqrt{\frac{l}{g}}K\left(\sin\frac{\varphi_0}{2}\right)
+\end{aligned}
+$$
+
+当最大摆角很小时，$\sin\varphi_0/2 \approx \varphi_0/2$ 按照幂级数展开可得
+
+$$
+T = 2\pi \sqrt{\frac{l}{g}}\left(1 + \frac{1}{16}\varphi_0^2 + \cdots\right)
+$$
+
+舍去高阶小量，余下的一项便是我们熟知的单摆小振动的周期表达式。
+
+### 根据周期确定势能
+&emsp;&emsp;我们能够通过势能确定周期。现在我们试图已知周期求势能。这其实就是求解周期的积分方程。对于有界的运动，$x = x(U)$是双值的，因此我们将积分化为两个部分：
+
+$$
+\begin{gathered}
+    T(E) =  \sqrt{2m}\int_0^E\left(\frac{\mathrm{d}x_2}{\mathrm{d}U} - \frac{\mathrm{d}x_1}{\mathrm{d}U}\right)\frac{\mathrm{d}U}{\sqrt{E-U}}\\
+    \int_0^\alpha \frac{T(E)}{\sqrt{\alpha - E}}\mathrm{d}E = \sqrt{2m}\int_0^\alpha\int_0^E\left(\frac{\mathrm{d}x_2}{\mathrm{d}U} - \frac{\mathrm{d}x_1}{\mathrm{d}U}\right)\frac{\mathrm{d}U\mathrm{d}E}{\sqrt{(E-U)(\alpha - E)}}\\
+    \int_0^\alpha \frac{T(E)}{\sqrt{\alpha - E}}\mathrm{d}E = \sqrt{2m}\int_0^\alpha\left(\frac{\mathrm{d}x_2}{\mathrm{d}U} - \frac{\mathrm{d}x_1}{\mathrm{d}U}\right)\mathrm{d}U\int_0^E\frac{\mathrm{d}E}{\sqrt{(E-U)(\alpha - E)}}\\
+    \int_0^\alpha \frac{T(E)}{\sqrt{\alpha - E}}\mathrm{d}E = \pi\sqrt{2m}[x_2(\alpha) - x_1(\alpha)]\\
+    x_2(U) - x_1(U) = \frac{1}{\pi\sqrt{2m}}\int_0^\alpha \frac{T(E)}{\sqrt{\alpha - E}}\mathrm{d}E
+\end{gathered}
+$$
+
+也就是说给定周期，只能确定到两个坐标的差值，然而坐标本身无法确定，这也反映了势能可以任意加减一个常数的事实。但是如果势能曲线关于$U$轴对称，那么$U(x)$就可以唯一确定。
+
+### 约化质量
+&emsp;&emsp;仅由两个质点组成的力学系统非常重要，我们在此单独研究。两个质点间的势能仅依赖于他们之间的距离，因此拉格朗日函数可以写为
+
+$$
+\mathcal{L} = \frac{1}{2}m_1\dot{r}_1 + \frac{1}{2}m_2\dot{r}_2 - U(\left\vert r_1 - r_2 \right\vert)
+$$
+
+我们可以引入位矢差$r = r_1 - r_2$，并取质心系，那么在质心系中就有$m_1r_1 + m_2r_2 = 0$，反解出
+
+$$
+r_1 = \frac{m_2}{m_1+m_2}r, \qquad r_2 = -\frac{m_1}{m_1+m_2}r
+$$
+
+代入拉格朗日函数得
+
+$$
+\mathcal{L} = \frac{1}{2}\frac{m_1m_2}{m_1+m_2}\dot{r}^2 - U(r)
+$$
+
+因此一个二体问题可以简化为一个质点在外场$U(r)$中的运动，其中质点的质量为
+
+$$
+m = \frac{m_1m_2}{m_1+m_2}
+$$
+
+我们称其为**约化质量**。
+
+### 有心力场中的运动
+>朗道对于一些符号的使用有些奇怪，在此使用更熟悉、更常见的符号。
+
+&emsp;&emsp;由角动量的定义$J = r\times p$，我们可以发现，如果一个力学系统的角动量不变，那么径矢总是保持在一个平面内的，因此轨道都在一个平面内。在那个平面内研究力学系统，引入极坐标$r, \varphi$，拉氏量就可以写作
+
+$$
+\mathcal{L} = \frac{1}{2}m(\dot{r}^2 + r^2\dot{\varphi}^2) - U(r)
+$$
+
+由于上式不显含坐标$\varphi$（这一点也说明了有心力场下空间的旋转对称性，或者说角动量守恒的系统空间旋转对称），那么我们就可以对坐标$\varphi$写运动方程
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = \frac{\partial \mathcal{L}}{\partial\varphi} = 0
+$$
+
+这也表明广义动量$\partial \mathcal{L}/\partial \dot{\varphi}$也是一个守恒量，$p = mr^2\dot{\varphi}$，这即是角动量守恒。
+
+&emsp;&emsp;接下来我们来推导开普勒第二定律。考虑转过一小角形成的扇形面积，$\mathrm{d}s = 1/2r^2\mathrm{d}\varphi$，那么角动量守恒就可以写作$2m\dot{s} = \mathrm{const}$，这正是开普勒第二定律，相等时间间隔内质点径矢扫过相同的面积，掠面速度不变。
+
+&emsp;&emsp;为了将能量表达式换成$r，\dot{r}$的函数，将$J = mr^2\dot{\varphi}$代入能量表达式，我们有
+
+$$
+E = \frac{1}{2}m\dot{r}^2 + \frac{J}{2mr^2} + U(r)
+$$
+
+用相似的方法分离变量积分能得到两个坐标关于$t$的关系
+
+$$
+\begin{gathered}
+    t = \int \frac{\mathrm{d}r}{\sqrt{\frac{2}{m}[E-U(r)] - \frac{J^2}{m^2r^2}}}\\
+    \varphi = \int \frac{(J/r^2)\mathrm{d}r}{\sqrt{2m[E-U(r)]- J^2/r^2}}
+\end{gathered}
+$$
+
+能量的表达式又可以看作是 $E = T + U_{eff}$，是一个一维运动，有效势能是
+$U_{eff} = U(r) + J^2/2mr^2$，我们称后一项$J^2/2mr^2$为**离心势能**。$U_{eff} = E$给出的转折点是运动过程的最小和最大径矢。然而在这个情况下，转折点处仍有角向的速度$\dot{\varphi}$。如果这个方程给出两个转折点，那么轨道就全部在两个转折点确定的环形区域内，然而不一定是封闭曲线：只有两个转折点之间角向的积分
+
+$$
+\Delta\varphi = \int_{r_{\mathrm{min}}}^{r_{\mathrm{max}}} \frac{(J/r^2)\mathrm{d}r}{\sqrt{2m[E-U(r)]- J^2/r^2}}
+$$
+
+是$2\pi$的整数倍时，轨道才能够封闭。轨道是否封闭完全取决于势能的形式；只有当势能与$1/r$或$r^2$成正比时，其中一切有界运动的轨道都是封闭的。
+
+&emsp;&emsp;当$r \to 0$时，离心势能应当足够快的趋近于$-\infty$质点才可能坠入场的中心。离心势能像$J^2/2mr^2$一样趋近于$+\infty$，因此$U(r)$必须像$-\alpha/r^2(\alpha > J^2/2m)$或者像$-k/r^n$这样趋向于$-\infty$。
+
+### 开普勒问题
+&emsp;&emsp;我们来研究引力场下的运动。引力场的势能$U(r) = -\alpha/r$，$U_{eff} = -\alpha/r + J^2/2mr^2$。这个势能在$r \to 0$时趋近于$+\infty$，在$r \to \infty$时趋近于$0^-$，最小值为$U(J^2/m\alpha) = -m\alpha^2/2J^2$。当$E>0$时运动无界，$E<0$时运动有界。
+
+&emsp;&emsp;通过$\varphi-r$的积分可以得到极坐标系下的轨道方程
+
+$$
+\varphi = \arccos\frac{J/r - m\alpha/J}{\sqrt{2mE + m^2\alpha^2/J^2}}
+$$
+
+设$p = J^2/m\alpha$，$e = \sqrt{1+2EJ^2/m\alpha^2}$，轨道方程可以重写为
+
+$$
+r = \frac{p}{1 + e\cos\varphi}
+$$
+
+这正是我们熟悉的圆锥曲线方程。当$E<0$时，运动有界，对应$e<1$，此时轨道是椭圆。当能量取最小值时，$e = 0$，椭圆变成圆。椭圆轨道的周期仅与总能量有关。用面积积分公式能得到
+
+$$
+T = \pi\alpha\sqrt{\frac{m}{2E^3}}.
+$$
+
+当$E \geq 0$时，运动无界，此时轨道可能取双曲线或是抛物线，对应的偏心率$e\geq 1$。当一个静止的质点从无穷远跌向场心，那么对应的$E = 0$，轨迹变为抛物线。
+
+### 拉普拉斯-龙格-楞次矢量
+&emsp;&emsp;在形如$U(r) = \alpha/r$的有心力场中，有一个特别的守恒量，称作**拉普拉斯-龙格-楞次矢量**，简称LRL矢量：
+
+$$
+\overrightharpoon{p}\times \overrightharpoon{J} + \alpha\frac{\overrightharpoon{r}}{r} = \mathrm{const}.
+$$
+
+>下午花了四个小时写了这么多，也算是速通了。现在是北京时间 11.25 16:03，济南小雨。可能回宿舍还需要一些时间把习题写一下？今日p24-40。
