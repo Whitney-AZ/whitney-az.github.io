@@ -205,7 +205,7 @@ $$
 &emsp;&emsp;在形如$U(r) = \alpha/r$的有心力场中，有一个特别的守恒量，称作**拉普拉斯-龙格-楞次矢量**，简称LRL矢量：
 
 $$
-\overrightharpoon{p}\times \overrightharpoon{J} + \alpha\frac{\overrightharpoon{r}}{r} = \mathrm{const}.
+\overrightarrow{p}\times \overrightarrow{J} + \alpha\frac{\overrightarrow{r}}{r} = \mathrm{const}.
 $$
 
->下午花了四个小时写了这么多，也算是速通了。现在是北京时间 11.25 16:03，济南小雨。可能回宿舍还需要一些时间把习题写一下？今日p24-40。
+>下午花了四个小时写了这么多，也算是速通了。现在是北京时间 11.25 16:03，济南小雨。可能回宿舍还需要一些时间把习题写一下？今日p24-41。

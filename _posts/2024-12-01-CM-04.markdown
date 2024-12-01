@@ -1,0 +1,138 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》（4）"
+subtitle:     "(4/14)"
+date:         2024-12-01 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg-4.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+> 昨晚又失眠了。后天去医院开点安定片。其实失眠本身不是问题，问题是我必须要上早八。必须要上。
+
+## 质点碰撞
+### 质点分裂
+&emsp;&emsp;本节译注中提到，本节中的质点应该翻译成粒子。通读全章后发现确实如此，因此我们在之后也选择类似的说法，用粒子替代质点。粒子作为现实中真实存在的、可以分裂的一个物理实体研究起来才比较有意义。
+
+&emsp;&emsp;我们先考虑一个粒子自发的分裂成两个粒子的过程。我们选择原粒子静止的参考系$C$中来考察这一过程最为简单。分裂过程无外力，因此动量守恒，在$C$系中两个粒子以大小相等、方向相反的动量相背运动。再根据能量守恒，有
+
+$$
+E_{\mathrm{int}} = E_{1\mathrm{int}} + \frac{p_0^2}{2m_1} + E_{2\mathrm{int}} + \frac{p_0^2}{2m_2}
+$$
+
+内能差值$\varepsilon = E_{\mathrm{int}} - E_{1\mathrm{int}} - E_{2\mathrm{int}}$，那么
+
+$$
+\varepsilon = \frac{p_0^2}{2}\left(\frac{1}{m_1} + \frac{1}{m_2}\right) = \frac{p_0^2}{2m}
+$$
+
+其中$m$是约化质量。两个质点在$C$中的速度大小分别是$v_{10} = p_0/m_1$，$v_{20} = p_0/m_2$。
+
+&emsp;&emsp;但是我们研究中常使用的是实验室系，也就是粒子在其中以$V$运动的参考系$L$。分裂后一个质点的速度$v_1 = V + v_{10}$，即$v_1^2 + V^2 -2v_1V\cos\theta = v_{10}^2$，其中$\theta$是$v_1$和$V$的夹角。当$V< v_0$ 时，在$L$系下，粒子分裂后可以与参考系速度以任何夹角飞出；然而若$V>v_0$，考虑直角三角形$v_1^2 + v_{10}^2 = V^2$，那么此时的$\theta$就取$\theta_{\mathrm{max}} = \arcsin v_0/V$。
+
+&emsp;&emsp;$C$系中和$L$系中飞出角的关系也可以求解：
+
+$$
+\tan\theta = \frac{v_0\sin\theta_0}{v_0\cos\theta_0 + V}
+$$
+
+### 质点弹性碰撞
+&emsp;&emsp;弹性碰撞过程中系统的总能量不变，不改变两质点的内部状态。显然在$C$系中考察两个质点的弹性碰撞最简单。在$L$系下，两个质点的速度分别是
+
+$$
+v_{10} = \frac{m_2}{m_1+m_2}v, \qquad v_{20} = -\frac{m_1}{m_1+m_2}v
+$$
+
+$v$是两个质点的相对速度，也是在$C$系下的某一质点的速度。
+
+>私以为本处朗道对于碰撞的分析过程有点不太合适，而且刘川《力学》上似乎根本没有对类似题目的讨论，因此跳过。
+
+### 质点散射
+
+&emsp;&emsp;散射问题是一个质点在中心静止的力场中的偏转问题。散射截面是力心相对于入射粒子来说的等效面积。我们考虑一个在有心力场$U(r)$中运动的经典粒子。我们假设$r \to \infty , U(r) \to 0$，并假设粒子在$t\to-\infty$时从无穷远入射并在$t\to+\infty$时出射。这一假设是有意义的；在这样一种有心力场中的散射过程往往都有时间反演对称性，因此我们可以假设在粒子最接近力心时$t = 0$。而根据能量守恒，在入射和出射时的动能应当都一致。我们设初始速度矢量和力心的距离为**瞄准距离**$\rho$，初始速度和末速度的夹角为$\chi$，被称作**散射角度**。再由于对称性，入射速度和最近处和力心的夹角$\varphi_0$和$\chi$有简单的关系：
+
+$$
+\chi + 2\varphi_0 = \pi
+$$
+
+因此我们只要知道夹角$\varphi_0$的值就能求出$\chi$。而根据有心力场中的运动方程的积分，我们有
+
+$$
+\varphi_0 = \int_r^\infty\frac{(J/r^2)\mathrm{d}r}{\sqrt{2m[E-U(r)] - J^2/r^2}}
+$$
+
+用初始速度和瞄准距离来重写上面的积分，由于$E = mv^2/2$，$J = m\rho v$，
+
+$$
+\varphi_0 = \int_r^\infty\frac{(\rho/r^2)\mathrm{d}r}{\sqrt{1 - \rho^2/r^2 - 2U/mv^2}}
+$$
+
+这即是单粒子的散射过程。注意到这一过程和路径是无关的（或者说路径只与力场的形式有关），因此可以研究各种各样的散射过程。
+
+### 全同质点束的散射
+
+&emsp;&emsp;下面我们来研究一束质点的散射。一束质点射入力场时，不同的质点有不同的瞄准距离，因此会有不同的偏转角度，也就是说$\chi = \chi(\rho)$。我们用$\mathrm{d}N$来表示单位时间内偏转角度在$\chi$到$\chi + \mathrm{d}\chi$之间的散射质点数。这个值与密度有关，因此我们可以引入一个比值
+
+$$
+\mathrm{d}\sigma = \frac{\mathrm{d}N}{n}
+$$
+
+其中$n$是单位时间内通过质点束单位横截面积上的质点数。这一$\mathrm{d}\sigma$有面积的量纲，因此被称为**有效散射截面**。我们可以发现，如果$\chi(\rho)$是单调函数，那么只有瞄准距离$\rho$到$\rho + \mathrm{d}\rho$的粒子会被散射到$\chi$到$\chi + \mathrm{d}\chi$之间。那么我们就会有
+
+$$
+\mathrm{d}\sigma = \frac{\mathrm{d}N}{n} = \frac{2\pi\rho\mathrm{d}\rho n}{n} = 2\pi\rho\mathrm{d}\rho
+$$
+
+为了研究散射截面关于散射角的关系，我们可以将上式写作
+
+$$
+\mathrm{d}\sigma = 2\pi\rho\left\vert\frac{\mathrm{d}\rho}{\mathrm{d}\chi}\right\vert\mathrm{d}\chi
+$$
+
+再考虑立体角微元$\mathrm{d}o = 2\pi\sin\chi\mathrm{d}\chi$，那么有效散射截面关于立体角微元的关系就是
+
+$$
+\mathrm{d}\sigma = \frac{\rho}{\sin\chi}\left\vert\frac{\mathrm{d}\rho}{\mathrm{d}\chi}\right\vert\mathrm{d}o
+$$
+
+### 卢瑟福公式
+&emsp;&emsp;由上面的公式可以推得带点粒子在库仑场中的散射。库仑场的形式是$U = \alpha/r$，因此
+
+$$
+\begin{gathered}
+    \varphi_0 = \arccos\frac{\frac{\alpha}{mv^2\rho}}{\sqrt{1 + \left(\frac{\alpha}{mv^2\rho}\right)^2}}\\
+    \rho^2 = \frac{\alpha^2}{m^2v^4}\tan^2\varphi_0 = \frac{\alpha^2}{m^2v^4}\cot^2\frac{\chi}{2}\\
+    \mathrm{d}\sigma = \pi\left(\frac{\alpha}{mv^2}\right)^2\frac{\cos(\chi/2)}{\sin^3(\chi/2)}\mathrm{d}\chi = \left(\frac{\alpha}{2mv^2}\right)^2\frac{1}{\sin^4(\chi/2)}\mathrm{d}o
+\end{gathered}
+$$
+
+这即是卢瑟福公式。由于公式中仅有$\alpha^2$项，因此场具体是排斥还是吸引对散射没有影响。
+
+### 小角度散射
+&emsp;&emsp;如果瞄准距离很大、力场$U$很弱，导致偏转角很小，有效散射截面的计算就会变得非常简单。我们取初始动量的方向为$x$，那么显然有关系$\sin\chi = p_{1y}'/p_1'$。由于散射角很小，所以$\sin\chi = \chi$，因此$\chi \approx p_{1y}'/mv$，而根据动量定理
+
+$$
+p'_{1y} = \int_{-\infty}^{+\infty}F_y\mathrm{d}t = -\frac{\rho}{v}\int_{-\infty}^{+\infty}\frac{\mathrm{d}U}{\mathrm{d}r}\frac{\mathrm{d}x}{r}
+$$
+
+由于有关系$r^2 = x^2 +\rho^2$，那么$\mathrm{d}x = r\mathrm{d}r/\sqrt{r^2 - \rho^2}$，并且积分本身化为二倍的$r$从$\rho$积到$+\infty$的积分，因此
+
+$$
+\chi = -\frac{2\rho}{mv^2}\int^{+\infty}_\rho \frac{\mathrm{d}U}{\mathrm{d}r}\frac{\mathrm{d}r}{\sqrt{r^2 - \rho^2}}
+$$
+
+那么散射截面就是
+
+$$
+\mathrm{d}\sigma = \left\vert\frac{\mathrm{d}\rho}{\mathrm{d}\chi}\right\vert \frac{\rho}{\chi}\mathrm{d}o.
+$$
+
+>现在是12.1 20:23。距离上一篇鸽了很久呢。中间这几天一直在看代数几何，有点上头，不过还是先把这个坑填完为好。今日p41-60.
