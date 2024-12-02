@@ -205,6 +205,36 @@ $$
 \ddot{x} + 2\lambda\dot{x} + \omega_0^2 x =0
 $$
 
-通过特征方程我们可以得到方程的通解为$x = C_1\exp(-\lambda +\sqrt{\lambda^2 -\omega_0^2}) + C_2\exp(-\lambda -\sqrt{\lambda^2 -\omega_0^2})$。 
+通过特征方程我们可以得到方程的通解为$x = C_1\exp(-\lambda +\sqrt{\lambda^2 -\omega_0^2}) + C_2\exp(-\lambda -\sqrt{\lambda^2 -\omega_0^2})$。 也就是说，运动方程的具体形式和$\lambda$和$\omega_0$的关系密切相关。
 
->今日到此为止。大约是p61-78；即便如此，今晚时间充裕，可能再续。
+#### $\lambda \ll \omega_0$的情况
+&emsp;&emsp;这种情况下，研究单个振幅之间的变化意义不大，阻尼系数过小导致振幅减小速率较慢。这时我们考虑速度平方的平均值，也就是能量的平均值。能量的平均衰减速率可以是
+
+$$
+\overline{E} = E_0\mathrm{e}^{-2\lambda t}.
+$$
+
+#### $\lambda < \omega_0$的情况
+&emsp;&emsp;此时方程有两个共轭复解，取实值可以得到通解
+
+$$
+x = \mathrm{Re} \left\{ A\exp \left( -\lambda t + \mathrm{i}t\sqrt{\omega_0^2 - \lambda^2} \right) \right\} = a\mathrm{e}^{-\lambda t}\cos\left(\sqrt{\omega_0^2 - \lambda^2}t + \alpha\right)
+$$
+
+这一运动方程告诉我们，一个阻尼振动可以被看作是振幅按指数衰减的简谐振动。
+
+#### $\lambda = \omega_0$ 的情况
+&emsp;&emsp;此时特征方程有两个相等的根$r = -\lambda$，这时通解为$x = (C_1 + C_2t)\mathrm{e}^{-\lambda t}$，此时摩擦力足够大，使得质点只能做一个类似$x\mathrm{e}^{-x}$的运动。
+
+#### $\lambda > \omega_0$ 的情况
+&emsp;&emsp;这种情况和上一种情况类似，特征方程的两个解都是实负数，通解就可以写为
+
+$$
+x = C_1\exp\left[-\left(\lambda - \sqrt{\lambda^2 - \omega^2_0}\right)t\right] +  C_2\exp\left[-\left(\lambda + \sqrt{\lambda^2 - \omega^2_0}\right)t\right]
+$$
+
+由于两个幂都是负数，所以$\vert x\vert$单调递减，最终趋于平衡，这样一种运动方式被称为**非周期阻尼**。
+
+&emsp;&emsp;类似的讨论可以拓展到多自由度的系统中，然而不论如何特征方程的根都应该是负数或是复共轭对，以保证整个系统的能量是不断减少的。
+
+>现在是12.02 20:18，完成p60-80。今晚还能往前赶赶进度，但是为了保证渲染的速度分两篇写。
