@@ -1,0 +1,210 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》（5）"
+subtitle:     "(5/14)"
+date:         2024-12-02 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg-5.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+## 微振动
+### 一维自由振动
+&emsp;&emsp;微振动指的是一个力学系统在平衡位置附近的运动，并且运动幅度不大。我们先研究仅有一个自由度的自由振动过程。系统偏离平衡位置后，会产生一个$-\mathrm{d}U/\mathrm{d}q$的力使系统返回平衡位置。对$U(q) - U(q_0)$按$q - q_0$的幂次展开，并取到二阶项，会有
+
+$$
+U(q) - U(q_0) = \frac{1}{2}U^{\prime\prime}(q_0)(q - q_0)^2
+$$
+
+设$U^{\prime\prime}(q_0) = k$，$x = q - q_0$，就会有
+
+$$
+U(x) = \frac{1}{2}kx^2.
+$$
+
+因此整个系统的拉格朗日函数就是
+
+$$
+\mathcal{L} = \frac{1}{2}m\dot{x}^2 - \frac{1}{2}kx^2
+$$
+
+运动方程就是$m\ddot{x}+ kx = 0$。这个方程可以变形为一个二阶常系数齐次线性微分方程$\ddot{x} + \omega^2x = 0$，一个通解为$x = C_1\cos\omega t + C_2\sin\omega t$。这个通解也可以化为$x = A\cos(\omega t + \alpha)$，其中$A = \sqrt{C_1^2 + C^2_2}$，$\tan\alpha = -C_2/C_1$。我们称$\omega$为振动的**频率**，$A$为振动的**振幅**，$\alpha$为振动的**初相位**。由频率的表达式我们可以发现，他其实是运动的基本特征量，不依赖于运动的初始条件。
+
+&emsp;&emsp;系统的能量也可以写作
+
+$$
+E = \frac{1}{2}m\dot{x}^2 + \frac{1}{2}kx^2 = \frac{1}{2}m(\dot{x}^2 + \omega^2x^2) = \frac{1}{2}m\omega^2A^2.
+$$
+
+也就是说，给定一个微振动，其系统的能量和振幅的平方成正比。引入复数后振动系统可以写作$x = \mathrm{Re}\{Ae^{i(\omega t + \alpha)}\}$，进而可以直接在运动积分、微分后取实部来得到系统的运动。
+
+### 强迫振动
+&emsp;&emsp;振动自然可以被一个外场作用。由于前面假设振动为微振动，因此外场力应该很弱，以保证振动仍然是微振动。我们称这么一种运动为**强迫振动**。这样从能量的角度出发，系统的能量中应该还有一项外场的势能项$U(x,t)$。同样对这么一个势能对$x$展开，得到
+
+$$
+U(x,t)\approx U(0,t) + \left.x\frac{\partial U}{\partial x}\right\vert_{x= 0} 
+$$
+
+注意到$-\partial U/\partial x$是某种力，因此可以写作$F(t)$，而第一项$U(0,t)$显然是某个时间函数的全导数，因此系统的拉格朗日函数是
+
+$$
+\mathcal{L} = \frac{1}{2}m\dot{x}^2 - \frac{1}{2}kx^2 + xF(t)
+$$
+
+这样我们又能得到运动方程$m\ddot{x} + kx - F(t) = 0$，即$\ddot{x} + \omega^2x = m^{-1}F(t)$。这是一个二阶非齐次常系数微分方程，其解为齐次通解加上非齐次的一个特解。
+
+&emsp;&emsp;接下来我们来考虑一种外力是时间周期函数的情况，即
+
+$$
+F(t) = f\cos(\gamma t+\beta)
+$$
+
+这种情况下，运动方程的通解是
+
+$$
+x = A\cos(\omega t + \alpha) + \frac{f}{m(\omega^2 - \gamma^2)}\cos(\gamma t + \beta )
+$$
+
+这样一种形式启示我们，在周期性强迫力的作用下，系统的运动由两个振动合成而成。但是如果在上面的运动方程中取$\omega = \gamma$的情况，运动就会变得不可解。为了解决这种情况，我们将运动方程改写为
+
+$$
+x = A'\cos(\omega t + \alpha) + \frac{f}{m(\omega^2 - \gamma^2)}\left[\cos(\gamma t + \beta) - \cos(\omega t + \beta)\right]
+$$
+
+在$\gamma\to \omega$的情况下，第二项变为$0/0$的形式，因此可以用洛必达法则变为
+
+$$
+x = A'\cos(\omega t + \alpha) + \frac{f}{2m\omega}t\sin(\omega t + \beta)
+$$
+
+上式中出现了$t$的一次项，因此在共振的情况下运动的振幅随时间线性增大。
+
+&emsp;&emsp;对于一般形式的强迫力$F(t)$，可以对运动方程积分求解。引入复数，原运动方程就可以被改写为
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}(\dot{x} + \mathrm{i}\omega x)- \mathrm{i}\omega(\dot{x} + \mathrm{i}\omega x) = \frac{1}{m}F(t)
+$$
+
+引入复变量$\xi = \dot{x} + \mathrm{i}\omega x$，那么只需要求出复变量的值再取虚部就可以得到$x$的函数。这样运动方程就变味了一个一阶微分方程，我们假设其解为$\xi = A(t)\mathrm{e}^{\mathrm{i}\omega t}$，就能得到
+
+$$
+\dot{A} = \frac{1}{m}F(t)\mathrm{e}^{-\mathrm{i}\omega t}
+$$
+
+积分得到
+
+$$
+\xi = \mathrm{e}^{\mathrm{i}\omega t}\left[\int^t_0\frac{1}{m}F(t)\mathrm{e}^{-\mathrm{i}\omega t}\mathrm{d}t + \xi_0\right]
+$$
+
+这就是运动方程的通解，$\xi_0 = \xi(0)$。
+
+&emsp;&emsp;接下来我们试图找出外场对系统转移的能量。回忆起能量的表达式$E = 1/2m(\dot{x}^2 +\omega^2x^2)$，发现其可以写作$E = 1/2m\vert\xi\vert^2$，所以我们只需求出$\vert\xi\vert^2$的值即可。而我们将积分拓展至$+\infty$再取模方，得到
+
+$$
+\vert\xi(\infty)\vert^2 = \frac{1}{m^2}\left\vert\int^{+\infty}_{-\infty}F(t)\mathrm{e}^{-\mathrm{i}\omega t}\mathrm{d}t\right\vert^2
+$$
+
+代入上式可以得到能量的表达式
+
+$$
+E = \frac{1}{2m}\left\vert\int^{+\infty}_{-\infty}F(t)\mathrm{e}^{-\mathrm{i}\omega t}\mathrm{d}t\right\vert^2
+$$
+
+如果外力作用时间很短，那么相对于$t$，$\omega\approx 0$，那么$\mathrm{e}^{-\mathrm{i}\omega t} \approx 1$，此时能量的表达式就变为
+
+$$
+E = \frac{1}{2m}\left\vert\int^{+\infty}_{-\infty}F(t)\mathrm{d}t\right\vert^2
+$$
+
+注意到这正是$E = p^2/2m$。这表示外力给系统提供了冲量但未能产生显著的位移。
+
+### 多自由度系统的振动
+&emsp;&emsp;多自由度系统的自由振动类似于一维振动。假设势能$U$是广义坐标的函数，并在$q_{i0}$处取最小值，那么类似的引入偏移值$x_i = q_i - q_{i0}$，就可以得到二次正定形式的势能：
+
+$$
+U = \frac{1}{2}k_{ik}x_ix_k
+$$
+
+此处我们为了简略省略了求和号，只要某个指标出现两次就对那个指标求和，也就是说上式等价于
+
+$$
+U = \frac{1}{2}\displaystyle\sum_{i,k}k_{ik}x_ix_k
+$$
+
+由于角标可以随意交换，所以系数$k$的角标是对称的，即$k_{ik} = k_{ki}$。
+
+&emsp;&emsp;同样的可以写出动能：
+
+$$
+T = \frac{1}{2}m_{ik}\dot{x}_i\dot{x}_k
+$$
+
+同样我们有$m_{ik} = m_{ki}$，因此拉格朗日函数就是
+
+$$
+\mathcal{L} = \frac{1}{2}\left(m_{ik}\dot{x}_i\dot{x}_k - k_{ik}x_ix_k\right)
+$$
+
+全微分得到
+
+$$
+\mathrm{d}\mathcal{L} = \frac{1}{2}\left(m_{ik}\mathrm{d}\dot{x}_i\dot{x}_k + m_{ik}\dot{x}_i\mathrm{d}\dot{x}_k - k_{ik}\mathrm{d}x_ix_k - k_{ik}x_i\mathrm{d}x_k\right)
+$$
+
+由于**每一项中**指标都可以任意交换，所以其实上式就是
+
+$$
+\mathrm{d}\mathcal{L} = m_{ik}\dot{x}_i\mathrm{d}\dot{x}_k - k_{ik}x_i\mathrm{d}x_k
+$$
+
+那么就能得到拉格朗日方程
+
+$$
+m_{ik}\ddot{x}_k + k_{ik}x_k = 0
+$$
+
+$i$取遍$1$到$s$，这是$s$个二阶齐次常系数线性方程。我们寻找的通常都是一些满足形式$x_k = A_k\mathrm{e}^{\mathrm{i}\omega t}$的函数。代入上式可以发现，其满足方程组
+
+$$
+(-\omega^2m_{ik} + k_{ik})A_k = 0
+$$
+
+要求其有解，就相当于要求系数行列式为$0$，即$\vert -\omega^2m_{ik} + k_{ik}\vert = 0$，这个方程被称为**特征方程**，有$s$个正实根$\omega_\alpha^2$，这些$\omega_\alpha$被称为系统的**本征频率**。如果所有的根都不同（暗示了在所有的自由度上都有振动），那么系数$A_k$就正比于行列式的代数余子式，也就是说有$x_k = \Delta_{k\alpha}C_\alpha\mathrm{e}^{\mathrm{i}\omega_\alpha t}$，将所有的特解求和就能得到通解：
+
+$$
+x_k = \mathrm{Re}\{\Delta_{k\alpha}C_\alpha\mathrm{e}^{\mathrm{i}\omega_\alpha t}\} \equiv \Delta_{k\alpha}\Theta_\alpha.
+$$
+
+这就说明了这么一件事：我们可以取一组新的广义坐标，使得系统的振动被分解为在新的广义坐标下的独立振动，在每一个坐标中都有
+
+$$
+\ddot{\Theta}_\alpha + \omega_\alpha^2\Theta_\alpha = 0
+$$
+
+这样一种坐标被称为**简正坐标**，其进行的简单周期振动被称为系统的**简正振动**。我们也可以取新的简正坐标$Q_\alpha = \sqrt{\alpha}\Theta_\alpha$，此时系统的拉氏量就会被写作
+
+$$
+\mathcal{L} = \frac{1}{2}(\dot{Q}^2 - \omega^2_\alpha Q^2_\alpha).
+$$
+
+>分子振动部分跳过。
+
+### 阻尼振动
+&emsp;&emsp;在实际的运动中，存在这么一种在介质中的运动可以被力学运动方程描述的情况，而这一运动往往可以被等价为在原有的运动方程上引入一个依赖于速度的附加项，被称作**摩擦力**。当速度足够小的时候，摩擦力可以被展开写作$f = -\alpha\dot{x}$。加到运动方程中，可以得到$m\ddot{x} + \alpha\dot{x} + kx = 0$。引入系数$\omega_0 = k/m$和$2\lambda = \alpha/m$，（我们称其为**阻尼系数**）我们会得到方程
+
+$$
+\ddot{x} + 2\lambda\dot{x} + \omega_0^2 x =0
+$$
+
+通过特征方程我们可以得到方程的通解为$x = C_1\exp(-\lambda +\sqrt{\lambda^2 -\omega_0^2}) + C_2\exp(-\lambda -\sqrt{\lambda^2 -\omega_0^2})$。 
+
+>今日到此为止。大约是p61-78；即便如此，今晚时间充裕，可能再续。
