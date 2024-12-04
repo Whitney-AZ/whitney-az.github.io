@@ -1,0 +1,108 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》（7）"
+subtitle:     "(7/14)"
+date:         2024-12-04 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg-7.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+## 刚体的运动
+### 角速度
+&emsp;&emsp;力学中一个刚体被定义为质点间距离保持不变的质点组成的系统。通过对整个刚体的微分，能得到体元$\mathrm{d}V$，因此我们可以将刚体当作离散质点的集合来考虑。为了描述刚体的运动，我们可以引入两种参考系：惯性参考系$XYZ$，以及随着刚体运动的动坐标系$xyz$。我们常取原点于刚体的质心处。这么一个动坐标系相对惯性系有一个三个自由度的位矢差异以及三个独立的角向差异，因此一个刚体是有$6$个自由度的力学系统。因此一个刚体的无穷小位移可以分为两个位移的和：一种是无穷小的平移，一种是无穷小的转动，即对于刚体上任意一点$P$，其相对惯性系的无穷小位移便是
+
+$$
+\mathrm{d}\tau = \mathrm{d}R + \mathrm{d}\varphi \times r.
+$$
+
+即可得速度关系
+
+$$
+v = V + \Omega \times r
+$$
+
+其中$V$是刚体质心的平动速度，$\Omega$是刚体的转动角速度。
+
+&emsp;&emsp;如果我们考虑另一个刚体上的参考系，其相对原来参考系的原点的位矢为$a$，就会有$r = r' + a$，那么现在其速度便是$v = V + \Omega\times a + \Omega\times r'$，而又因为在第二个参考系中应该有$v' = V' + \Omega' \times r'$，同一个刚体在不变的惯性参考系中速度应该一致，我们就有$v = v'$，因此就有重要关系
+
+$$
+V' = V + \Omega\times a, \qquad \Omega' = \Omega
+$$
+
+也就是说，不论我们如何选择参考系，似乎刚体总有一个内禀的转动，并且在任何参考系中都大小相等，方向相互平行，因此我们可以直接将$\Omega$称作刚体的**角速度**。我们可以在某一瞬间选定一种参考系使得$V' = 0$，那么此时刚体的运动只剩下一种转动，我们称其转动轴为**瞬时转动轴**。
+
+### 惯量张量
+&emsp;&emsp;接下来我们试图计算刚体的动能。因为我们将一个刚体当作离散质点系，所以其动能可以写作$T = \sum 1/2mv^2$，代入上面的速度关系可得
+
+$$
+T = \sum \frac{1}{2}m(V + \Omega \times r)^2 = \sum\frac{1}{2}mV^2 + \sum mV\cdot(\Omega \times r) + \sum \frac{1}{2}m(\Omega \times r)^2.
+$$
+
+第一项是刚体的平动动能，可以写作$1/2\mu V^2$；第二项通过轮换$V,\Omega,r$，我们能得到
+
+$$
+\sum mV\cdot(\Omega \times r) = \sum mr\cdot(V\times \Omega) = (V\times \Omega)\cdot \sum mr.
+$$
+
+而我们若选定坐标原点在质心处，那么这一项显然就应当是$0$，那么整个动能就会变成两项：
+
+$$
+T = \frac{1}{2}\mu V^2 + \frac{1}{2}\sum m\left[\Omega^2r^2 - \left(\Omega \cdot r\right)^2\right].
+$$
+
+这种简化动能的做法只有在选定质点系的时候才有可能实现。
+
+&emsp;&emsp;我们还能将上式写作张量式。
+
+$$
+\begin{aligned}
+    LHS(2) 
+    &=  \frac{1}{2}\sum m\left(\Omega_i^2x_l^2 - \Omega_ix_i\Omega_kx_k\right) \\
+    &=  \frac{1}{2}\sum m\left(\Omega_i\Omega_k\delta_{ik}x_l^2- \Omega_ix_i\Omega_kx_k\right)\\
+    &=  \Omega_i\Omega_k\frac{1}{2}\sum m\left(\delta_{ik}x_l^2- x_ix_k\right).
+\end{aligned}
+$$
+
+因此我们可以定义张量$I_{ik} = \sum m\left(\delta_{ik}x_l^2- x_ix_k\right)$，那么就能得到刚体动能的表达式为
+
+$$
+T = \frac{1}{2}\mu V^2 + \frac{1}{2}I_{ik}\Omega_i\Omega_k
+$$
+
+注意到前后两项表达式形式上的对称性。因此我们可以在$\mu$和$I_{ik}$之间建立某种联系，从而将其理解作某种“转动时表现出的质量”。这么一个张量被称作刚体**惯量张量**。由定义我们可以发现他是对称的，也就是说有关系$I_{ik} = I_{ki}$。
+
+&emsp;&emsp;我们将其写成分量形式：
+
+$$
+I_{ik} = 
+\begin{pmatrix}
+    \sum m(y^2 + z^2) & -\sum mxy & -\sum mxz \\
+    -\sum myx & \sum m(x^2 + z^2) & -\sum myz \\
+    -\sum mzx & -\sum mzy & \sum m(x^2 + y^2)
+\end{pmatrix}
+$$
+
+对角线上的元素$I_{xx}, I_{yy}, I_{zz}$被称作对应轴方向的**转动惯量**。显然转动惯量是一个可加量。在求和中取体元，就会有
+
+$$
+I_{ik} = \int \rho(\delta_{ik}x_l^2- x_ix_k)\mathrm{d}V.
+$$
+
+从物理的角度看，我们似乎总可以选定这么三个轴，使得$I_{ik}$变为对角的形式，这样三个轴被称作**惯量主轴**，对应的分量被称作**主转动惯量**。这是转动动能就可以简单的写作
+
+$$
+T = \frac{1}{2}(I_1\Omega_1^2 + I_2\Omega_2^2 + I_3\Omega_3^2)
+$$
+
+三个主转动惯量各不相等的刚体被称作**非对称陀螺**，如果两个主转动惯量相等，那么就被称为**对称陀螺**；如果三个主转动惯量均相等，那么就被称为**球陀螺**。
+
+>今天太颓废了。p100-110.
