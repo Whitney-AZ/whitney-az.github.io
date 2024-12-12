@@ -65,6 +65,7 @@ in which we used the fact that
 $$
 J^{\alpha\beta\mu}_{\quad\ \,\nu} = J^{\alpha\beta}_{\quad\lambda\nu}g^{\mu\lambda} = (\delta^\alpha_\lambda\delta^\beta_\nu - \delta^\alpha_\nu\delta^\beta_\lambda)g^{\mu\lambda}.
 $$
+
 Having $\omega$ as an arbitrary parameter, the part inside the brackets is a conserved tensor as well, namely 
 
 $$
