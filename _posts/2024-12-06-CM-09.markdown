@@ -1,0 +1,151 @@
+---
+layout:       post
+title:        "两周速通朗道《力学》（9）"
+subtitle:     "(9/14)"
+date:         2024-12-06 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/cm-notes-bg-9.jpg"
+header-mask:  0.3
+catalog:      true
+usemathjx: true
+tags:
+    - 分析力学
+    - 朗道
+    - 物理
+    - 数学
+    - 笔记
+---
+
+> The fun part!
+
+## 正则方程
+### 哈密顿方程
+&emsp;&emsp;拉格朗日函数通过广义坐标和广义速度来描述系统的运动状态。然而对于某些问题，利用广义坐标和广义动量来描述系统状态是有优势的。接下来我们来试着在这种方程上建立运动方程。
+
+&emsp;&emsp;拉格朗日的全微分可以写作
+
+$$
+\mathrm{d}\mathcal{L} = \frac{\partial\mathcal{L}}{\partial q_i}\mathrm{d}q_i + \frac{\partial\mathcal{L}}{\partial \dot{q}_i}\mathrm{d}\dot{q}_i
+$$
+
+观察到其实上式就等价于
+
+$$
+\mathrm{d}\mathcal{L} = \dot{p}_i\mathrm{d}q_i +  p_i\mathrm{d}\dot{q}_i = \dot{p}_i\mathrm{d}q_i + \mathrm{d}(p_i\dot{q}_i)-  \dot{q}_i\mathrm{d}p_i
+$$
+
+因此整个式子就可以变形为
+
+$$
+\mathrm{d}(p_i\dot{q}_i - \mathcal{L}) = -\dot{p}_i\mathrm{d}q_i + \dot{q}_i\mathrm{d}p_i
+$$
+
+左边被微分的变量是用广义坐标和广义动量表示的系统的能量，被称为系统的**哈密顿函数**：
+
+$$
+\mathcal{H}(p, q,t) = \sum p_i\dot{q}_i - \mathcal{L}
+$$
+
+对应系数可得
+
+$$
+\dot{q}_i = \frac{\partial\mathcal{H}}{\partial p_i}\qquad \dot{p}_i = -\frac{\partial\mathcal{H}}{\partial q_i}
+$$
+
+这即是用$p$和$q$表示的运动方程，称为**哈密顿方程**，为$2s$个一阶微分方程组。由于其形式简单并且对称，也被称为**正则方程**。
+
+&emsp;&emsp;哈密顿方程对时间的全微分自然可以写作
+
+$$
+\frac{\mathrm{d}\mathcal{H}}{\mathrm{d}t} = \frac{\partial\mathcal{H}}{\partial t} + \frac{\partial\mathcal{H}}{\partial q_i}\dot{q}_i + \frac{\partial\mathcal{H}}{\partial p_i}\dot{p}_i = \frac{\partial\mathcal{H}}{\partial t}
+$$
+
+因此如果一个哈密顿函数不显含时间，那么自然$\mathrm{d}\mathcal{H}/\mathrm{d}t$ = 0，而既然哈密顿函数反映的是系统的能量，那么自然就能得出能量守恒。
+
+### 罗斯函数
+&emsp;&emsp;类似的，我们也可以仅选一些广义速度用广义动量来表示，其余的仍用广义速度来表示。这样得到的函数被称为**罗斯函数**，其推导过程与哈密顿函数完全一致。罗斯函数对于选用动量的部分是哈密顿的，而对于选用广义速度的部分是拉格朗日的。
+
+&emsp;&emsp;罗斯函数在存在循环坐标的系统中非常好用。既然某一广义坐标是循环坐标，那么其显然不会显含于拉格朗日函数中，自然也不会显含于罗斯函数中；而又因为如果选定其广义动量，那么由于这部分是哈密顿的，循环坐标对应的广义动量能被积分确定到一个常数，如此罗斯函数就仅剩非循环坐标的部分，循环坐标被完全消去。
+
+### 泊松括号
+&emsp;&emsp;假设$f(p,q,t)$是某个函数。其对时间的全导数是
+
+$$
+\frac{\mathrm{d}f}{\mathrm{d}t} = \frac{\partial f}{\partial t}+ \sum_k\left(\frac{\partial f}{\partial q_k}\frac{\mathrm{d}q_k}{\mathrm{d}t} + \frac{\partial f}{\partial p_k}\frac{\mathrm{d}p_k}{\mathrm{d}t}\right) = \frac{\partial f}{\partial t} + \sum_k\left(\frac{\partial\mathcal{H}}{\partial p_k}\frac{\partial f}{\partial q_k} - \frac{\partial\mathcal{H}}{\partial q_k}\frac{\partial f}{\partial p_k}\right)
+$$
+
+注意到后面一项仅与$\mathcal{H}$和$f$有关而且长得像某种对偶，因此我们引入一个记号
+
+$$
+[\mathcal{H},f] = \sum_k\left(\frac{\partial\mathcal{H}}{\partial p_k}\frac{\partial f}{\partial q_k} - \frac{\partial\mathcal{H}}{\partial q_k}\frac{\partial f}{\partial p_k}\right)
+$$
+
+被称为$\mathcal{H}$和$f$的**泊松括号**。
+
+&emsp;&emsp;运动积分是运动学变量的某个当系统运动时保持不变的函数。因此运动积分对时间的导数应该为$0$，即
+
+$$
+\frac{\mathrm{d}f}{\mathrm{d}t} = \frac{\partial f}{\partial t} + [\mathcal{H},f] = 0
+$$
+
+而第一项显然也应当是$0$，因此必有$[\mathcal{H},f] = 0$。
+
+&emsp;&emsp;类似的可以定义两个函数之间的泊松括号为
+
+$$
+[f,g] = \sum_k\left(\frac{\partial f}{\partial p_k}\frac{\partial g}{\partial q_k} - \frac{\partial f}{\partial q_k}\frac{\partial g}{\partial p_k}\right).
+$$
+
+&emsp;&emsp;泊松括号具有如下性质：
+
+$$
+\begin{cases}
+    [f,g] = -[g,f]\\
+    [f,c] = 0\\
+    [f_1 + f_2,g] = [f_1,g] + [f_2,g]\\
+    [f_1f_2,g ] = f_1[f_2,g] + f_2[f_1,g]\\
+    [f,[g,h]] + [g,[h,f]] + [h,[f,g]] = 0
+\end{cases}
+$$
+
+最后一个等式叫做**雅可比恒等式**。根据雅可比恒等式，我们发现如果令$h = \mathcal{H}$，那么其会给出
+
+$$
+[f,[g,\mathcal{H}]] + [g,[\mathcal{H},f]] + [\mathcal{H},[f,g]] = 0
+$$
+
+那么如果$f,g$均为运动积分，那么前两项为$0$，最后一项也自然为$0$。也就是说，两个运动积分的泊松括号仍然是一个运动积分，这就是**泊松定理**。
+
+### 作为坐标函数的作用量
+&emsp;&emsp;在一开始的叙述中，我们认为作用量是沿着给定两点之间的积分。然而我们还可以将其看作是积分上限中坐标的函数，也就是说我们固定初始位置，并比较所有$t_2$时刻通过不同位置的真实路径的作用量。如此，作用量的变分就可以写作
+
+$$
+\delta S = \frac{\partial \mathcal{L}}{\partial \dot{q}}\delta q \bigg\vert^b_a + \int\left(\frac{\partial \mathcal{L}}{\partial q} - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{q}}\right)\delta q \mathrm{d}t
+$$
+
+由于总取真实路径，那么积分项总是为$0$，而初始位置总是相同，因此$\delta q(t_1) = 0$，那么这个变分就可以写为
+
+$$
+\delta S = p_i\delta q_i \Longrightarrow \frac{\partial S}{\partial q_i} = p_i 
+$$
+
+而根据作用量的定义，我们有$\mathrm{d}S/\mathrm{d}t = \mathcal{L}$，再根据上面的叙述，我们实际上可以将作用量看作是坐标和时间的函数，那么就会有
+
+$$
+\frac{\mathrm{d}S}{\mathrm{d}t} =  \frac{\partial S}{\partial t} + \frac{\partial S}{\partial q_i}\dot{q}_i  = \frac{\partial S}{\partial t} + p_i\dot{q}_i = \mathcal{L}
+$$
+
+即
+
+$$
+\frac{\partial S}{\partial t} = -\mathcal{H}.
+$$
+
+写作全微分的形式：
+
+$$
+\mathrm{d}S = p_i\mathrm{d}q_i - \mathcal{H}\mathrm{d}t
+$$
+
+如果此时我们选择移动初始位置，那么这一微分就应当写作两端点的差值。这一差值的形式意味着除非这一差值是全微分，运动的末态都不可能是初态的某个函数。也就是说，存在与拉格朗日函数任何具体形式无关的最小作用量原理，其给可能运动的范围附加了一定的限制。
+

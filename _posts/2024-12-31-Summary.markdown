@@ -1,0 +1,16 @@
+---
+layout:       post
+title:        "2024年终总结"
+subtitle:     ""
+date:         2024-12-31 12:00:00
+author:       "Whitney"
+header-img:   "img/in-post/newyear.jpg"
+header-mask:  0.3
+catalog:      true
+multilingual: true
+usemathjx: true
+tags:
+    - 随笔
+---
+
+&emsp;&emsp;
