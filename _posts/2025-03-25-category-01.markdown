@@ -22,12 +22,12 @@ tags:
 
 &emsp;&emsp;**定义1（Grothendieck宇宙）**&emsp;&emsp;Grothendieck宇宙是一个满足如下性质的集合$\mathcal{U}$:
 1. $u\in \mathcal{U} \Rightarrow u \subset \mathcal{U}$;
-2. $u, v\in \mathcal{U} \Rightarrow \{u,v\}\in \mathcal{U}$;
+2. $u, v\in \mathcal{U} \Rightarrow \\{u,v\\}\in \mathcal{U}$;
 3. $u\in \mathcal{U} \Rightarrow P(u) \in \mathcal{U}$;
 4. 给定$I\in \mathcal{U}$， 若集合$\{u_i : i\in I\}$满足$\forall i(u_i\in\mathcal{U})$，则$\bigcup_{i\in I}u_i \in \mathcal{U}$;
 5. $\mathbb{Z}_{\ge0}\in \mathcal{U}$.
 
-&emsp;&emsp;对于一$X$，如果$X\in \mathcal{U}$，则称$X$为$\mathcal{U}$-集；如果$X$与一个$\mathcal{U}$-集，则称其为$\mathcal{U}$-小集。
+&emsp;&emsp;对于一$X$，如果$X\in \mathcal{U}$，则称$X$为$\mathcal{U}$-集；如果$X$与一个$\mathcal{U}$-集等势，则称其为$\mathcal{U}$-小集。
 
 &emsp;&emsp;我们来大致解读一下这些定义。1-4以一种粗暴的方式说明了，对于一个宇宙，用其中任意元素构造的一个更大的元素仍在这个宇宙中，这也就当然意味着对于其中元素的任何操作都无法得到一个超出宇宙的元素，而5表明了空集$\emptyset\in \mathcal{U}$。但是这仅仅是对于宇宙之内的元素而言的；对于我们研究的任意一个大集合，我们怎么知道其是否在某个宇宙中呢？换个角度讲，是否有足够多且足够大的宇宙供我们研究呢？关于这一点，Grothendieck提出假设：对于任意一个集合$X$，总存在一个宇宙$\mathcal{U}$使得$X\in \mathcal{U}$。为了证明这一假设，我们先提出层垒谱系的概念：
 
@@ -53,4 +53,53 @@ tags:
 
 &emsp;&emsp;有了Grothendieck宇宙的概念，我们相当于就有了范畴论运行的框架（或者说背景），也就因此可以开始正式的引入范畴论的内容了。不过我们会惊讶的发现，似乎范畴论涉及宇宙的部分并不多，却又均是必要的。
 
-## 范畴论的基本概念
+# 范畴论的基本概念
+>究其根本，范畴其实是非常简单的一件事：其是由对象及对象之间的态射共同组成的数学结构，而函子是保持范畴之间态射结构的映射。
+
+## 范畴与态射
+&emsp;&emsp;一个范畴$\mathcal{C}$是指：
+1. 一个集合$\mathrm{Ob}(\mathcal{C})$，其元素被称为$\mathcal{C}$的对象；
+2. 一个集合$\mathrm{Mor}(\mathcal{C})$，其元素被称为$\mathcal{C}$的态射，并且配上一对映射$s, t: \mathrm{Mor}(\mathcal{C})\to \mathrm{Ob}(\mathcal{C})$，分别给出态射的来源和目标。由上面的定义，$s^{-1}(X)$就给出了源于$X$的所有态射，而$t^{-1}(Y)$就给出了目标为$Y$的所有态射。因此$s^{-1}(X)\bigcap t^{-1}(Y)$就给出了所有从$X$到$Y$的态射，我们将其记为$\mathrm{Hom}_{\mathcal{C}}(X,Y)$。在下面的讨论中我们往往会省略下标$\mathcal{C}$。（其实是如果在下面加了$\mathcal{C}$会出排版问题？）同理如果我们想表达所有从$Y$到$X$的态射，那么我们就有$\mathrm{Hom}(Y,X) := s^{-1}(Y)\bigcap t^{-1}(X)$。
+3. 特殊地，对于每个对象$X$，总能给定一个$\mathrm{id}_X\in \mathrm{Hom}(X,X)$，被称为$X$到自身的恒等映射。对于给定的$X$，这一恒等映射是唯一确定的。
+4. 对于任意的$X,Y,Z \in \mathrm{Ob}(\mathcal{C})$，给定态射的合成$\circ$为
+
+$$
+\begin{gathered}
+    \mathrm{Hom}(X,Y) \times \mathrm{Hom}(Y,Z) \longrightarrow \mathrm{Hom}(X,Z)\\
+    (f,g) \mapsto f\circ g / fg.
+\end{gathered}
+$$
+
+&emsp;&emsp;在定义良好的态射之间态射的合成满足结合律，即对于$f(gh)$和$(fg)h$，如果$(gh)$，$(fg)$均有定义，那么这两者是相等的：$f(gh) = (fg)h = fgh$。同时有
+
+$$
+f\circ \mathrm{id}_X = f = \mathrm{id}_X\circ f.
+$$
+
+对于态射$f: X\to Y$，如果存在$g:Y\to X$使得$fg = \mathrm{id}_Y\vee gf = \mathrm{id}_X$，那么我们称$f$是从$X$到$Y$的一个同构，记作$f: X\simeq Y$，并称$g$为$f$的逆。显然逆若存在必然是唯一的。我们将$X$到$Y$的同构集记作$\mathrm{Isom}(X,Y)$。
+
+### 自同态与自同构
+&emsp;&emsp;我们将$X$的自同态集记作$\mathrm{End}(X) := \mathrm{Hom}(X,X)$。我们任取$f, g \in \mathrm{End}(X)$，这显然也满足态射合成的定义，因此具有结合律，并且
+
+$$
+\begin{gathered}
+    (f,g) \mapsto f\circ g \\
+    \mathrm{Hom}(X,X) \times \mathrm{Hom}(X,X) \longrightarrow \mathrm{Hom}(X,X) = \mathrm{End}(X).
+\end{gathered}
+$$
+
+也就是说在态射的合成下自同态集是封闭的。又按照态射的合成法则，与恒等映射的合成不变，因此$\mathrm{End}(X)$构成一个幺半群，恒等映射$\mathrm{id}_X$自然的成为了单位元。
+
+&emsp;&emsp;在自同态的基础上，我们可以自然的给出自同构集：$\mathrm{Aut}(X) := \mathrm{Isom}(X,X)$。自同构集显然是一个自同态集，因此是一个幺半群；在此基础上，由于在自同构集中任意元素的逆的唯一存在性，自同构集$\mathrm{Aut}(X)$实际上构成了一个群。
+
+### 一些细枝末节的定义
+&emsp;&emsp;对象与态射均为空的范畴被称为空范畴，记为$\mathbf{0}$。
+
+&emsp;&emsp;仿照子集/子群的定义，我们可以定义子范畴：对于一个范畴$\mathcal{C}$的子范畴$\mathcal{C}^\prime$，我们要求
+
+$$
+(\mathrm{Ob}(\mathcal{C}^\prime)\subset \mathrm{Ob}(\mathcal{C}))\vee (\mathrm{Mor}(\mathcal{C}^\prime)\subset \mathrm{Mor}(\mathcal{C}))\vee (\mathrm{Hom}_{\mathcal{C}^\prime}(X,Y)\subset \mathrm{Hom}_{\mathcal{C}}(X,Y)).
+$$
+
+可以看出，子范畴保持了对象之间态射的关系。特别的，如果态射完全不变，那么我们称$\mathcal{C}^\prime$为$\mathcal{C}$的全子范畴。
+
