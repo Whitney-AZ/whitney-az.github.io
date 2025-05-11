@@ -103,3 +103,5 @@ $$
 
 可以看出，子范畴保持了对象之间态射的关系。特别的，如果态射完全不变，那么我们称$\mathcal{C}^\prime$为$\mathcal{C}$的全子范畴。
 
+&emsp;&emsp;如果$\forall X,Y\in \mathrm{Ob}(\mathcal{C})$，$\mathrm{Hom}(X,Y)$均为$\mathcal{U}$-小集，那么我们称$\mathcal{C}$为$\mathcal{U}$-范畴；进一步的，如果$\mathrm{Mor}(\mathcal{C})$也为$\mathcal{U}$-小集，那么我们称其为$\mathcal{U}$-小范畴。可以看出，$\mathcal{U}$-范畴实际上是一个“局部小”的$\mathcal{U}$-小范畴。并且如果我们考虑一个显然的嵌入映射$\mathrm{id}_X: \mathrm{Ob}(\mathcal{C})\to \mathrm{Mor}(\mathcal{C})$，那么$\mathcal{U}$-小范畴的条件也就等价于：$\mathrm{Ob}(\mathcal{C})$也为$\mathcal{U}$-小集$\Longrightarrow$ $\mathcal{C}$为$\mathcal{U}$-小范畴。
+

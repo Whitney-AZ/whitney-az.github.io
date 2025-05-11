@@ -1,0 +1,59 @@
+---
+layout:       post
+title:        "三个cartan公式的证明"
+subtitle:     ""
+date:         2025-04-23 23:00:00
+author:       "Whitney"
+header-img:   "img/in-post/mathe-physics-bg.jpg"
+header-mask:  0.3
+catalog:      true
+multilingual: true
+usemathjx: true
+tags:
+    - 数学
+    - 物理
+    - 微分几何
+    - cartan<3
+---
+
+&emsp;&emsp;此帖记录一下在处理微分形式的时候常用到的三个cartan公式：
+
+$$
+\begin{cases}
+    [\mathcal{L}_X, \mathrm{d}] = 0\\
+    \mathcal{L}_X = \mathrm{d}\cdot\mathrm{i}_X + \mathrm{i}_X\cdot\mathrm{d}\\
+    [\mathcal{L}_X, \mathrm{i}_Y] = \mathrm{i}_{[X,Y]}.
+\end{cases}
+$$
+
+的证明。事实上，熟悉了三个线性算子的定义后，这三个公式的证明无非就是简单的搭积木，任何一个优秀的小学生都能轻松完成。
+
+---
+
+> Cartan 是一位伟大的数学家， Cartan❤️love! <3
+
+---
+
+&emsp;&emsp;第一个公式是一个算子式。证明的主要方法是将其作用在任意一个几何对象上，然后考察其值是否能化简为0。
+
+&emsp;&emsp;先作用在标量函数$f$上。微分算子给出
+
+$$
+\mathrm{d}f = \frac{\partial f}{\partial x^i}\mathrm{d}x^i.
+$$
+
+进一步用李导数作用在其上：
+
+$$
+\begin{aligned}
+    \mathcal{L}_X\mathrm{d}f 
+    &=  \mathcal{L}_X\left(\frac{\partial f}{\partial x^i}\mathrm{d}x^i\right)\\
+    &=  \mathcal{L}_X\left(\frac{\partial f}{\partial x^i}\right)\mathrm{d}x^i + \frac{\partial f}{\partial x^i}\mathcal{L}_X\mathrm{d}x^i\\
+    a^i\frac{\partial}{\partial x^i} \rightarrow \mathrm{d}u^i\nabla_i\left(a^k\frac{\partial}{\partial x^k}\right)
+\end{aligned}
+
+$$
+
+$$
+\cos(\vec{n},x)
+$$
